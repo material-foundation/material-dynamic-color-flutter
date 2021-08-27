@@ -30,7 +30,7 @@ class TonalPalette {
   /// The tertiary tonal range (T).
   final _TonalRange tertiary;
 
-  /// Turns a [List] of color [int]s representing concatenated palettes into
+  /// Turns a [List] of color [int]s representing concatenated tonal ranges into
   /// a [TonalPalette] object.
   ///
   /// This is the reverse of [asList].
