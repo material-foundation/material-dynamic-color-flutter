@@ -8,7 +8,7 @@ import 'tonal_palette.dart';
 class DynamicColorsPlugin {
   /// Method channel for requesting the dynamic color tonal palette from the
   /// Android OS.
-  static const channel = MethodChannel('plugins.flutter.io/dynamic_colors');
+  static const channel = MethodChannel('io.material.plugins/dynamic_colors');
 
   /// The method name that the java plugin will listen for and return the
   /// dynamic color tonal palette when called.

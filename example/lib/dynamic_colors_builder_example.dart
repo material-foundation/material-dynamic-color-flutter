@@ -7,21 +7,23 @@ class ExampleApp1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: DynamicColorsBuilder(
-          builder: (TonalPalette? dynamicColors) {
-            return Container(
+    return DynamicColorsBuilder(
+      builder: (TonalPalette? dynamicColors) {
+        return MaterialApp(
+          // TODO: show how to use with theme
+          // theme:
+          home: Scaffold(
+            body: Container(
               // On Android S+ devices, use the 500 shade of the primary palette
               // On other platforms, default to a mid-range amber.
               color: dynamicColors?.primary.shade500 ?? Colors.amber[500],
               child: const Center(
                 child: Text('DynamicColorsBuilder example app'),
               ),
-            );
-          },
-        ),
-      ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
