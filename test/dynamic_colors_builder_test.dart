@@ -27,7 +27,9 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect((tester.firstWidget(find.byKey(containerKey)) as Container).color,
-        const Color(0x00003039)); // 12345 in hex
+    expect(
+      (tester.firstWidget(find.byKey(containerKey)) as Container).color,
+      const Color(0x00003039), // 12345 in hex
+    );
   });
 }

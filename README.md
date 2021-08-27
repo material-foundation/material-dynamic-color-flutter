@@ -4,7 +4,7 @@ A Flutter plugin to obtain dynamic colors on Android S+.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO(guidezpl): List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 

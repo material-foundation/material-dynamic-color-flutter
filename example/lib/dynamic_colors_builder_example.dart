@@ -10,7 +10,7 @@ class ExampleApp1 extends StatelessWidget {
     return DynamicColorsBuilder(
       builder: (TonalPalette? dynamicColors) {
         return MaterialApp(
-          // TODO: show how to use with theme
+          // TODO(guidezpl): show how to use with theme
           // theme:
           home: Scaffold(
             body: Container(

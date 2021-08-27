@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 /// Respresents a Material You tonal palette, consisting of 5 tonal
 /// ranges.
 ///
-/// TODO: expand explanation, add screenshot, link to spec
+/// TODO(guidezpl): expand explanation, add screenshot, link to spec
 class TonalPalette {
   const TonalPalette({
     required this.neutral,
