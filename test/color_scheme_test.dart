@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  // TODO(guidezpl): finish tests when monet is available
+  // TODO(guidezpl): finish tests when monet is available, determine whether to test equality or specific output
   // group('Color harmonization', () {
   //   test('white with black', () async {
   //     Color colorA = const Color(0xFFFFFFFF);
@@ -24,8 +24,9 @@ void main() {
   group('ColorScheme harmonization', () {
     test('with default scheme', () async {
       ColorScheme colorScheme = const ColorScheme.light();
-      ColorScheme harmonizedColorScheme = colorScheme;
-      expect(colorScheme.harmonized(), harmonizedColorScheme);
+      ColorScheme harmonizedColorScheme = colorScheme.harmonized();
+
+      expect(harmonizedColorScheme, isNot(equals(colorScheme)));
     });
 
     test('with different primary color', () async {
