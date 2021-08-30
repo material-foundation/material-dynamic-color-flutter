@@ -17,7 +17,6 @@ class ExampleApp1 extends StatelessWidget {
           primary: dynamicColors?.primary.shade500 ?? Colors.amber[500],
         );
         return MaterialApp(
-          // TODO(guidezpl): show how to use with theme
           theme: ThemeData(
             /// Harmonize semantic colors, such as [ColorScheme.error], which by default is a dark red.
             /// Not doing so would cause semantic colors to look out of place next to dynamic colors.
@@ -25,11 +24,10 @@ class ExampleApp1 extends StatelessWidget {
           ),
           home: Scaffold(
             body: Container(
-              // On Android S+ devices, use the 500 shade of the primary tonal range.
-              // On other platforms, default to a mid-range amber.
-              color: dynamicColors?.primary.shade500 ?? Colors.amber[500],
+              color: Theme.of(context).colorScheme.primary,
               child: const Center(
-                child: Text('DynamicColorsBuilder example app'),
+                child: Text('Full example app'),
+                // TODO(guidezpl): add something showing error
               ),
             ),
           ),
