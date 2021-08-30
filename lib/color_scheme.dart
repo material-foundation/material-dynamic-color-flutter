@@ -2,12 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-///
+/// Shifts color [from] towards color [to].
 int _harmonizeColor(Color from, Color to) {
+  if (from == to) return from.value;
   return monet.smartBlend(from.value, to.value, hueP: 0.25, chroma: 0);
 }
 
 extension _ColorHarmonization on Color {
+  /// Harmonizes this color with [primary].
   Color harmonizeWithPrimary(Color primary) {
     int harmonizedColor = _harmonizeColor(this, primary);
     return Color(harmonizedColor);
@@ -15,7 +17,7 @@ extension _ColorHarmonization on Color {
 }
 
 extension ColorSchemeHarmonization on ColorScheme {
-  /// Harmonizes specified [ColorScheme] colors with the primary color.
+  /// Harmonizes specified [ColorScheme] colors with its primary color.
   ///
   /// TODO(guidezpl): link to spec
   ///
