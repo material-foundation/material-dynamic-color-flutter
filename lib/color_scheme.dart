@@ -3,15 +3,17 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 /// Shifts color [from] towards color [to].
-int _harmonizeColor(Color from, Color to) {
+@visibleForTesting
+int harmonizeColor(Color from, Color to) {
   if (from == to) return from.value;
-  return monet.smartBlend(from.value, to.value, hueP: 0.25, chroma: 0);
+  return from.value;
+  // return monet.smartBlend(from.value, to.value, hueP: 0.25, chroma: 0);
 }
 
 extension _ColorHarmonization on Color {
   /// Harmonizes this color with [primary].
   Color harmonizeWithPrimary(Color primary) {
-    int harmonizedColor = _harmonizeColor(this, primary);
+    int harmonizedColor = harmonizeColor(this, primary);
     return Color(harmonizedColor);
   }
 }
@@ -38,6 +40,7 @@ extension ColorSchemeHarmonization on ColorScheme {
     bool onError = true,
   }) {
     return copyWith(
+      // TODO(guidezpl): what about adding isHarmonized bool to ColorScheme?
       primaryVariant: !primaryVariant
           ? this.primaryVariant
           : this.primaryVariant.harmonizeWithPrimary(primary),
