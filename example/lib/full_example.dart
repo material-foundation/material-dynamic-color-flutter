@@ -1,5 +1,5 @@
-import 'package:dynamic_colors/color_scheme.dart';
 import 'package:dynamic_colors/dynamic_colors_builder.dart';
+import 'package:dynamic_colors/harmonization.dart';
 import 'package:dynamic_colors/tonal_palette.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:dynamic_colors/color_scheme.dart';
+import 'package:dynamic_colors/harmonization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
