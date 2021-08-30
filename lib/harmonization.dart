@@ -39,7 +39,6 @@ extension ColorSchemeHarmonization on ColorScheme {
     bool onError = true,
   }) {
     return copyWith(
-      // TODO(guidezpl): what about adding isHarmonized bool to ColorScheme?
       primaryVariant: !primaryVariant
           ? this.primaryVariant
           : this.primaryVariant.harmonizeWithPrimary(primary),
