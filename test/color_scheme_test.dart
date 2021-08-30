@@ -1,27 +1,25 @@
-import 'dart:ui';
-
 import 'package:dynamic_colors/color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // TODO(guidezpl): finish tests when monet is available
-  group('Color harmonization', () {
-    test('white with black', () async {
-      Color colorA = const Color(0xFFFFFFFF);
-      Color colorB = const Color(0x00000000);
-
-      int harmonizedColor = harmonizeColor(colorA, colorB);
-      expect(harmonizedColor, equals(12345));
-    });
-
-    test('same color', () async {
-      Color colorA = const Color(0xFFFFFFFF);
-
-      int harmonizedColor = harmonizeColor(colorA, colorA);
-      expect(harmonizedColor, equals(colorA.value));
-    });
-  });
+  // group('Color harmonization', () {
+  //   test('white with black', () async {
+  //     Color colorA = const Color(0xFFFFFFFF);
+  //     Color colorB = const Color(0x00000000);
+  //
+  //     int harmonizedColor = harmonizeColor(colorA, colorB);
+  //     expect(harmonizedColor, equals(12345));
+  //   });
+  //
+  //   test('same color', () async {
+  //     Color colorA = const Color(0xFFFFFFFF);
+  //
+  //     int harmonizedColor = harmonizeColor(colorA, colorA);
+  //     expect(harmonizedColor, equals(colorA.value));
+  //   });
+  // });
 
   group('ColorScheme harmonization', () {
     test('with default scheme', () async {
