@@ -5,14 +5,16 @@ import 'package:dynamic_colors/tonal_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ExampleApp2 extends StatefulWidget {
-  const ExampleApp2({Key? key}) : super(key: key);
+class Example2 extends StatefulWidget {
+  const Example2({Key? key}) : super(key: key);
+
+  static const title = 'DynamicColorsPlugin.getDynamicColors()';
 
   @override
-  State<ExampleApp2> createState() => _ExampleApp2State();
+  State<Example2> createState() => _Example2State();
 }
 
-class _ExampleApp2State extends State<ExampleApp2> {
+class _Example2State extends State<Example2> {
   TonalPalette? _dynamicColors;
 
   @override
@@ -46,14 +48,15 @@ class _ExampleApp2State extends State<ExampleApp2> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          // On Android S+ devices, use the 500 shade of the primary palette
+          // On Android S+ devices, use the 400 shade of the dynamic primary tonal range.
           // On other platforms, default to a mid-range amber.
-          color: _dynamicColors?.primary.shade500 ?? Colors.amber[500],
+          color: _dynamicColors?.primary.shade400 ?? Colors.amber.shade400,
           child: const Center(
-            child: Text('DynamicColorsPlugin.getDynamicColors() example app'),
+            child: Text('The background color is either dynamic or amber'),
           ),
         ),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
