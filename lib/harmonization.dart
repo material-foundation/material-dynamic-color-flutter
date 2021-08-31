@@ -30,6 +30,8 @@ extension ColorSchemeHarmonization on ColorScheme {
   ///
   /// Subclasses of [ColorScheme] with additional semantic colors should
   /// re-implement [harmonized]. For example:
+  /// import 'package:dynamic_colors/harmonization.dart';
+  ///
   /// class CustomColorScheme extends ColorScheme {
   ///   const CustomColorScheme(this.customSemanticColor) : super(...);
   ///
@@ -37,9 +39,9 @@ extension ColorSchemeHarmonization on ColorScheme {
   ///
   ///   CustomColorScheme harmonized() {
   ///     return copyWith(
-  ///       customSemanticColor: harmonizeWithPrimary(customSemanticColor),
-  ///       error: harmonizeWithPrimary(error),
-  ///       onError: harmonizeWithPrimary(onError),
+  ///       customSemanticColor: _harmonizeWithPrimary(customSemanticColor),
+  ///       error: _harmonizeWithPrimary(error),
+  ///       onError: _harmonizeWithPrimary(onError),
   ///     );
   ///   ...
   /// }
