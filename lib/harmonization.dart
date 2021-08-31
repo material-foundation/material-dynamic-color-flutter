@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 Color _harmonizeColor(Color from, Color to) {
   if (from == to) return from;
   return from;
+  // TODO(guidezpl): enable when available
   // return monet.smartBlend(from.value, to.value, hueP: 0.25, chroma: 0);
 }
 
