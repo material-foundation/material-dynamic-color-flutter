@@ -45,7 +45,7 @@ extension ColorSchemeHarmonization on ColorScheme {
   ///       error: _harmonizeWithPrimary(error),
   ///       onError: _harmonizeWithPrimary(onError),
   ///     );
-  ///
+  ///   }
   /// }
   ///
   ColorScheme harmonized() {
