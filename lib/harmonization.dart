@@ -37,13 +37,15 @@ extension ColorSchemeHarmonization on ColorScheme {
   ///
   ///   final Color customSemanticColor;
   ///
+  ///   CustomColorScheme copyWith({ ... }) {}
+  ///
   ///   CustomColorScheme harmonized() {
   ///     return copyWith(
   ///       customSemanticColor: _harmonizeWithPrimary(customSemanticColor),
   ///       error: _harmonizeWithPrimary(error),
   ///       onError: _harmonizeWithPrimary(onError),
   ///     );
-  ///   ...
+  ///
   /// }
   ///
   ColorScheme harmonized() {
