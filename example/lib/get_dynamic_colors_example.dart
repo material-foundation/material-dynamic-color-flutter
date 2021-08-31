@@ -48,9 +48,9 @@ class _Example2State extends State<Example2> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          // On Android S+ devices, use the 400 shade of the dynamic primary tonal range.
-          // On other platforms, default to a mid-range amber.
-          color: _dynamicColors?.primary.shade400 ?? Colors.amber.shade400,
+          // On Android S+ devices, use the 600 shade of the dynamic primary tonal range.
+          // On other platforms, default to a 600 shade amber.
+          color: _dynamicColors?.primary.shade600 ?? Colors.amber.shade600,
           child: const Center(
             child: Text('The background color is either dynamic or amber'),
           ),

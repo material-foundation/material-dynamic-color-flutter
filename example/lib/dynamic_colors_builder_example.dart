@@ -14,9 +14,9 @@ class Example1 extends StatelessWidget {
         return MaterialApp(
           home: Scaffold(
             body: Container(
-              // On Android S+ devices, use the 400 shade of the dynamic primary tonal range.
-              // On other platforms, default to a mid-range amber.
-              color: dynamicColors?.primary.shade400 ?? Colors.amber.shade400,
+              // On Android S+ devices, use the 600 shade of the dynamic primary tonal range.
+              // On other platforms, default to a 600 shade amber.
+              color: dynamicColors?.primary.shade600 ?? Colors.amber.shade600,
               child: const Center(
                 child: Text('The background color is either dynamic or amber'),
               ),

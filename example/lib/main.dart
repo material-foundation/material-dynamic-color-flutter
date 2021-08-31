@@ -48,10 +48,11 @@ class _ExampleAppButton extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => Scaffold(
-              appBar: AppBar(
-                title: Text(title, style: const TextStyle(fontSize: 14)),
-              ),
-              body: widget),
+            appBar: AppBar(
+              title: Text(title, style: const TextStyle(fontSize: 14)),
+            ),
+            body: widget,
+          ),
         ),
       ),
     );
