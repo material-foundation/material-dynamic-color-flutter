@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 bool _isDemoUsingDynamicColors = false;
 
-class FullExample extends StatelessWidget {
-  const FullExample({Key? key}) : super(key: key);
+class CompleteExample extends StatelessWidget {
+  const CompleteExample({Key? key}) : super(key: key);
 
-  static const title = 'Full (DynamicColorsBuilder + ColorScheme)';
+  static const title = 'DynamicColorsBuilder + ColorScheme';
 
   @override
   Widget build(BuildContext context) {
