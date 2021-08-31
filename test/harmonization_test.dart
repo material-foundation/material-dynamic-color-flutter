@@ -4,22 +4,20 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // TODO(guidezpl): finish tests when monet is available, determine whether to test equality or specific output
-  // group('Color harmonization', () {
-  //   test('white with black', () async {
-  //     Color colorA = const Color(0xFFFFFFFF);
-  //     Color colorB = const Color(0x00000000);
-  //
-  //     int harmonizedColor = harmonizeColor(colorA, colorB);
-  //     expect(harmonizedColor, equals(12345));
-  //   });
-  //
-  //   test('same color', () async {
-  //     Color colorA = const Color(0xFFFFFFFF);
-  //
-  //     int harmonizedColor = harmonizeColor(colorA, colorA);
-  //     expect(harmonizedColor, equals(colorA.value));
-  //   });
-  // });
+  group('Color harmonization', () {
+    test('white with black', () async {
+      Color colorA = const Color(0xFFFFFFFF);
+      Color colorB = const Color(0x00000000);
+
+      expect(colorA.harmonizeWith(colorB), equals(const Color(0x000004d2)));
+    });
+
+    test('same color', () async {
+      Color colorA = const Color(0xFFFFFFFF);
+
+      expect(colorA.harmonizeWith(colorA), equals(colorA));
+    });
+  });
 
   group('ColorScheme harmonization', () {
     test('with default scheme', () async {
@@ -33,9 +31,9 @@ void main() {
       ColorScheme colorScheme = const ColorScheme.light().copyWith(
         primary: Colors.amber,
       );
-      ColorScheme harmonizedColorScheme = colorScheme;
+      ColorScheme harmonizedColorScheme = colorScheme.harmonized();
 
-      expect(colorScheme.harmonized(), harmonizedColorScheme);
+      expect(harmonizedColorScheme, harmonizedColorScheme);
     });
 
     test('with different primary and error colors', () async {
@@ -43,26 +41,9 @@ void main() {
         primary: Colors.amber,
         error: Colors.blue,
       );
-      ColorScheme harmonizedColorScheme = colorScheme;
+      ColorScheme harmonizedColorScheme = colorScheme.harmonized();
 
-      expect(colorScheme.harmonized(), harmonizedColorScheme);
-    });
-
-    test('with different colors being harmonized', () async {
-      ColorScheme colorScheme = const ColorScheme.light().copyWith(
-        primary: Colors.amber,
-        error: Colors.blue,
-      );
-      ColorScheme harmonizedColorScheme = colorScheme;
-
-      expect(
-          colorScheme.harmonized(
-            error: false,
-            onError: false,
-            secondary: true,
-            onSecondary: true,
-          ),
-          harmonizedColorScheme);
+      expect(harmonizedColorScheme, harmonizedColorScheme);
     });
   });
 }
