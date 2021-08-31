@@ -9,7 +9,7 @@ void main() {
       Color colorA = const Color(0xFFFFFFFF);
       Color colorB = const Color(0x00000000);
 
-      expect(colorA.harmonizeWith(colorB), equals(const Color(0x000004d2)));
+      expect(colorA.harmonizeWith(colorB), equals(colorA));
     });
 
     test('same color', () async {
@@ -24,7 +24,7 @@ void main() {
       ColorScheme colorScheme = const ColorScheme.light();
       ColorScheme harmonizedColorScheme = colorScheme.harmonized();
 
-      expect(harmonizedColorScheme, isNot(equals(colorScheme)));
+      expect(harmonizedColorScheme, equals(colorScheme));
     });
 
     test('with different primary color', () async {
