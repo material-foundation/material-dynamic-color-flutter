@@ -38,6 +38,7 @@ class CompleteExample extends StatelessWidget {
           // the light and dark schemes, respectively. It is typical to use
           // colors with the same luminance values as those used for dynamic
           // color schemes.
+          // TODO(guidezpl): remove last sentence if false
           colorScheme = colorScheme.copyWith(
             primary: Colors.amber.shade400,
           );
@@ -69,11 +70,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _text = TextEditingController();
+  final _textEditingController = TextEditingController();
 
   @override
   void dispose() {
-    _text.dispose();
+    _textEditingController.dispose();
     super.dispose();
   }
 
@@ -91,7 +92,7 @@ class _HomeState extends State<Home> {
           children: [
             Text('The background color$dynamicMsg ColorScheme.primary'),
             TextField(
-              controller: _text,
+              controller: _textEditingController,
               decoration: InputDecoration(
                 errorText: 'The text color$dynamicMsg ColorScheme.error',
               ),
