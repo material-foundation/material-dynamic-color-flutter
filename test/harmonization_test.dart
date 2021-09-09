@@ -60,7 +60,7 @@ void main() {
   });
 
   group('ColorScheme harmonization', () {
-    test('does something', () {
+    test('modifies a color scheme', () {
       ColorScheme colorScheme = const ColorScheme.light();
       expect(colorScheme.harmonized(), isNot(equals(colorScheme)));
     });
