@@ -12,8 +12,7 @@ Color _harmonizeColor(Color from, Color to) {
 extension ColorHarmonization on Color {
   /// Harmonizes this color with [color].
   ///
-  /// Intended to be used with [ColorScheme.primary], when a dynamic color
-  /// scheme is expected.
+  /// Intended to be used with a dynamic [ColorScheme.primary] color.
   Color harmonizeWith(Color color) => _harmonizeColor(this, color);
 }
 
