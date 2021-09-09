@@ -8,7 +8,9 @@ import 'package:meta/meta.dart';
 
 /// Generates a [TonalPalette] based on some generator function which takes an index.
 TonalPalette generateTonalPalette(int Function(int index) generator) =>
-    TonalPalette.fromList(List<int>.generate(13 * 5, generator));
+    TonalPalette.fromList(
+      List<int>.generate(TonalPalette.size * TonalRange.size, generator),
+    );
 
 /// Static methods used for testing apps with dynamic [TonalPalette]s.
 class DynamicColorsTestingUtils {

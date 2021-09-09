@@ -29,25 +29,29 @@ class TonalPalette {
   /// The tertiary tonal range (T).
   final TonalRange tertiary;
 
+  // How many tonal ranges there are in a tonal palette.
+  static const size = 5;
+
   /// Turns a [List] of color [int]s representing concatenated tonal ranges into
   /// a [TonalPalette] object.
   ///
   /// This is the reverse of [asList].
-  TonalPalette.fromList(List<int> palettes)
-      : neutral = TonalRange._fromList(
-          palettes.getPartition(0, TonalRange.tonalRangeSize),
+  TonalPalette.fromList(List<int> colors)
+      : assert(colors.length == TonalPalette.size * TonalRange.size),
+        neutral = TonalRange.fromList(
+          colors.getPartition(0, TonalRange.size),
         ),
-        neutralVariant = TonalRange._fromList(
-          palettes.getPartition(1, TonalRange.tonalRangeSize),
+        neutralVariant = TonalRange.fromList(
+          colors.getPartition(1, TonalRange.size),
         ),
-        primary = TonalRange._fromList(
-          palettes.getPartition(2, TonalRange.tonalRangeSize),
+        primary = TonalRange.fromList(
+          colors.getPartition(2, TonalRange.size),
         ),
-        secondary = TonalRange._fromList(
-          palettes.getPartition(3, TonalRange.tonalRangeSize),
+        secondary = TonalRange.fromList(
+          colors.getPartition(3, TonalRange.size),
         ),
-        tertiary = TonalRange._fromList(
-          palettes.getPartition(4, TonalRange.tonalRangeSize),
+        tertiary = TonalRange.fromList(
+          colors.getPartition(4, TonalRange.size),
         );
 
   /// Returns all of the colors in each tonal range in one long [List] of color [int]s.
@@ -85,30 +89,32 @@ class TonalPalette {
       hashValues(neutral, neutralVariant, primary, secondary, tertiary);
 }
 
-/// Each tonal range contains 13 color shades.
+/// A tonal range consists of 13 different colors.
 ///
-/// The shades range from 0 to 1000, from most brighest to the least bright.
-/// In other words, the 0 shade is always white and the 1000 shade is always
+/// A tonal range is a translation of one hue (a dynamic extracted color) into
+/// a spectrum of related shades. The shades range from brightest (0) to darkest
+/// (1000). The 0 shade is always 100% white and the 1000 shade is always 100%
 /// black.
 class TonalRange {
-  const TonalRange({
-    required this.shade0,
-    required this.shade10,
-    required this.shade50,
-    required this.shade100,
-    required this.shade200,
-    required this.shade300,
-    required this.shade400,
-    required this.shade500,
-    required this.shade600,
-    required this.shade700,
-    required this.shade800,
-    required this.shade900,
-    required this.shade1000,
-  });
+  const TonalRange(
+    this.shade0,
+    this.shade10,
+    this.shade50,
+    this.shade100,
+    this.shade200,
+    this.shade300,
+    this.shade400,
+    this.shade500,
+    this.shade600,
+    this.shade700,
+    this.shade800,
+    this.shade900,
+    this.shade1000,
+  );
 
-  TonalRange._fromList(List<int> colors)
-      : shade0 = Color(colors[0]),
+  TonalRange.fromList(List<int> colors)
+      : assert(colors.length == size),
+        shade0 = Color(colors[0]),
         shade10 = Color(colors[1]),
         shade50 = Color(colors[2]),
         shade100 = Color(colors[3]),
@@ -137,7 +143,7 @@ class TonalRange {
   final Color shade1000; // Always 100% black
 
   // How many shades there are in a tonal range.
-  static const tonalRangeSize = 13;
+  static const size = 13;
 
   /// Returns all the shades in this tonal range as a list from shade 0 to 1000.
   List<Color> get allShades => [
