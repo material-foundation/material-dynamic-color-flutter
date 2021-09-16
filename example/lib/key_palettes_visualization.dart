@@ -8,6 +8,8 @@ class KeyPalettesVisualization extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// A sample key palette, as obtained by the [DynamicColorsPlugin] from the
+    /// Android OS.
     const sampleKeyPalettes = KeyPalettes(
       primary: KeyPalette(
         Color(0xFF000000),
@@ -139,12 +141,16 @@ class _RenderKeyPalettes extends StatelessWidget {
               ...tones.mapIndexed((Color color, int i) {
                 final toneValue = KeyPalette.toneValues[i];
                 return Container(
-                  constraints: BoxConstraints.tightFor(height: 80, width: 60),
+                  constraints: const BoxConstraints.tightFor(
+                    height: 80,
+                    width: 60,
+                  ),
                   color: color,
                   child: Center(
                     child: Text(
                       toneValue.toString(),
                       style: captionStyle!.copyWith(
+                        // For contrast
                         color: toneValue > 50 ? Colors.black : Colors.white,
                       ),
                     ),
@@ -160,7 +166,7 @@ class _RenderKeyPalettes extends StatelessWidget {
 }
 
 extension ExtendedIterable<E> on Iterable<E> {
-  /// Like Iterable<T>.map but callback have index as second argument
+  /// Like Iterable<T>.map but the callback has index as second argument.
   Iterable<T> mapIndexed<T>(T Function(E e, int i) f) {
     var i = 0;
     return map((e) => f(e, i++));
