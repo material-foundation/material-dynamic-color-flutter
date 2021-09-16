@@ -35,7 +35,7 @@ This package includes two ways to obtain dynamic colors.
 
 #### 1. `DynamicColorsBuilder`
 A convenience stateful builder widget that provides the dynamic colors
-in a [`TonalPalette`][TonalPalette]. This uses
+in a [`KeyPalettes`][KeyPalettes]. This uses
 [2.](#2-dynamiccolorsplugingetdynamiccolors) under the hood.
 [Example][DynamicColorsBuilder example]
 
@@ -45,12 +45,12 @@ Android S+ | Other device
 
 #### 2. `DynamicColorsPlugin.getDynamicColors()`
 Requests the dynamic colors asynchronously, returning a
-[`TonalPalette`][TonalPalette]. The developer is responsible for
-obtaining and storing the `TonalPalette`.
+[`KeyPalettes`][KeyPalettes]. The developer is responsible for
+obtaining and storing the `KeyPalettes`.
 [Example][DynamicColorsPlugin.getDynamicColors example]
 
 
-[TonalPalette]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
+[KeyPalettes]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
 [complete example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart
 [DynamicColorsBuilder example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_colors_builder_example.dart
 [DynamicColorsPlugin.getDynamicColors example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_colors_example.dart

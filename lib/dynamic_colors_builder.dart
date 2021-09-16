@@ -2,19 +2,19 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'dynamic_colors_plugin.dart';
-import 'tonal_palette.dart';
+import 'key_palettes.dart';
 
-/// A stateful builder widget that provides a [TonalPalette].
+/// A stateful builder widget that provides a [KeyPalettes].
 ///
-/// The [TonalPalette] object will be null on non-Android platforms and
+/// The [KeyPalettes] object will be null on non-Android platforms and
 /// pre-Android S devices.
 ///
 /// Example usage:
 /// ```dart
 /// DynamicColorsBuilder(
-///   builder: (TonalPalette? dynamicColors) {
+///   builder: (KeyPalettes? dynamicColors) {
 ///     return Container(
-///       color: dynamicColors?.primary.shade500 ?? Colors.amber[500],
+///       color: dynamicColors?.primary.tone50 ?? Colors.amber[500],
 ///     );
 ///   }
 /// )
@@ -33,20 +33,20 @@ class DynamicColorsBuilder extends StatefulWidget {
     required this.builder,
   }) : super(key: key);
 
-  /// Builds the child widget of this widget, using the [TonalPalette] object
+  /// Builds the child widget of this widget, using the [KeyPalettes] object
   /// passed in.
   ///
-  /// The [TonalPalette] object will be null if the dynamic colors are not
+  /// The [KeyPalettes] object will be null if the dynamic colors are not
   /// available, or have not been returned yet. For example, using this builder
-  /// on an iOS device will always result in a `null` [TonalPalette] object.
-  final Widget Function(TonalPalette?) builder;
+  /// on an iOS device will always result in a `null` [KeyPalettes] object.
+  final Widget Function(KeyPalettes?) builder;
 
   @override
   _DynamicColorsBuilderState createState() => _DynamicColorsBuilderState();
 }
 
 class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
-  TonalPalette? _dynamicColors;
+  KeyPalettes? _dynamicColors;
 
   @override
   void initState() {
@@ -56,7 +56,7 @@ class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    TonalPalette? dynamicColors;
+    KeyPalettes? dynamicColors;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       dynamicColors = await DynamicColorsPlugin.getDynamicColors();

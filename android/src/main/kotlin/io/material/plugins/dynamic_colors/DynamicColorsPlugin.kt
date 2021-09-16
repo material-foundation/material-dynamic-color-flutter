@@ -34,7 +34,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
       // Dynamic colors are only available on Android S and up.
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val resources: Resources = binding.applicationContext.resources
-        result.success(getTonalPalette(resources))
+        result.success(getKeyPalettes(resources))
       } else {
         result.success(null)
       }
@@ -48,9 +48,9 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
   }
 
   @RequiresApi(Build.VERSION_CODES.S)
-  private fun getTonalPalette(resources: Resources): IntArray {
+  private fun getKeyPalettes(resources: Resources): IntArray {
     return intArrayOf(
-      // Neutral tonal range.
+      // Neutral key palette.
       resources.getColor(android.R.color.system_neutral1_0, null),
       resources.getColor(android.R.color.system_neutral1_10, null),
       resources.getColor(android.R.color.system_neutral1_50, null),
@@ -64,7 +64,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
       resources.getColor(android.R.color.system_neutral1_800, null),
       resources.getColor(android.R.color.system_neutral1_900, null),
       resources.getColor(android.R.color.system_neutral1_1000, null),
-      // Neutral variant tonal range.
+      // Neutral variant key palette.
       resources.getColor(android.R.color.system_neutral2_0, null),
       resources.getColor(android.R.color.system_neutral2_10, null),
       resources.getColor(android.R.color.system_neutral2_50, null),
@@ -78,7 +78,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
       resources.getColor(android.R.color.system_neutral2_800, null),
       resources.getColor(android.R.color.system_neutral2_900, null),
       resources.getColor(android.R.color.system_neutral2_1000, null),
-      // Primary tonal range.
+      // Primary key palette.
       resources.getColor(android.R.color.system_accent1_0, null),
       resources.getColor(android.R.color.system_accent1_10, null),
       resources.getColor(android.R.color.system_accent1_50, null),
@@ -92,7 +92,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
       resources.getColor(android.R.color.system_accent1_800, null),
       resources.getColor(android.R.color.system_accent1_900, null),
       resources.getColor(android.R.color.system_accent1_1000, null),
-      // Secondary tonal range.
+      // Secondary key palette.
       resources.getColor(android.R.color.system_accent2_0, null),
       resources.getColor(android.R.color.system_accent2_10, null),
       resources.getColor(android.R.color.system_accent2_50, null),
@@ -106,7 +106,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
       resources.getColor(android.R.color.system_accent2_800, null),
       resources.getColor(android.R.color.system_accent2_900, null),
       resources.getColor(android.R.color.system_accent2_1000, null),
-      // Tertiary tonal range.
+      // Tertiary key palette.
       resources.getColor(android.R.color.system_accent3_0, null),
       resources.getColor(android.R.color.system_accent3_10, null),
       resources.getColor(android.R.color.system_accent3_50, null),

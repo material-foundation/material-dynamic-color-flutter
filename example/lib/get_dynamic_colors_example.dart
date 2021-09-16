@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dynamic_colors/dynamic_colors_plugin.dart';
-import 'package:dynamic_colors/tonal_palette.dart';
+import 'package:dynamic_colors/key_palettes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,7 +15,7 @@ class Example2 extends StatefulWidget {
 }
 
 class _Example2State extends State<Example2> {
-  TonalPalette? _dynamicColors;
+  KeyPalettes? _dynamicColors;
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _Example2State extends State<Example2> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    TonalPalette? dynamicColors;
+    KeyPalettes? dynamicColors;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       dynamicColors = await DynamicColorsPlugin.getDynamicColors();
@@ -48,9 +48,9 @@ class _Example2State extends State<Example2> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          // On Android S+ devices, use the 600 shade of the dynamic primary tonal range.
-          // On other platforms, default to a 600 shade amber.
-          color: _dynamicColors?.primary.shade600 ?? Colors.amber.shade600,
+          // On Android S+ devices, use the 40 tone of the dynamic primary key palette.
+          // Otherwise, default to a 600 shade amber.
+          color: _dynamicColors?.primary.tone40 ?? Colors.amber.shade600,
           child: const Center(
             child: Text('The background color is either dynamic or amber'),
           ),

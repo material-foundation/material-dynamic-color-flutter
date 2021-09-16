@@ -1,5 +1,5 @@
 import 'package:dynamic_colors/dynamic_colors_builder.dart';
-import 'package:dynamic_colors/tonal_palette.dart';
+import 'package:dynamic_colors/key_palettes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,17 +9,17 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('DynamicColorsBuilder', (WidgetTester tester) async {
-    TonalPalette sampleColors = generateTonalPalette((i) => 12345);
+    KeyPalettes sampleColors = generateKeyPalettes((i) => 12345);
     DynamicColorsTestingUtils.setMockDynamicColors(sampleColors);
 
     const containerKey = Key('myContainer');
 
     await tester.pumpWidget(
       DynamicColorsBuilder(
-        builder: (TonalPalette? dynamicColors) {
+        builder: (KeyPalettes? dynamicColors) {
           return Container(
             key: containerKey,
-            color: dynamicColors?.primary.shade10,
+            color: dynamicColors?.primary.tone99,
           );
         },
       ),

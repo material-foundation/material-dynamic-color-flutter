@@ -1,22 +1,22 @@
 import 'dart:typed_data';
 
 import 'package:dynamic_colors/dynamic_colors_plugin.dart';
-import 'package:dynamic_colors/tonal_palette.dart';
+import 'package:dynamic_colors/key_palettes.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';
 
-/// Generates a [TonalPalette] based on some generator function which takes an index.
-TonalPalette generateTonalPalette(int Function(int index) generator) =>
-    TonalPalette.fromList(
-      List<int>.generate(TonalPalette.size * TonalRange.size, generator),
+/// Generates a [KeyPalettes] based on some generator function which takes an index.
+KeyPalettes generateKeyPalettes(int Function(int index) generator) =>
+    KeyPalettes.fromList(
+      List<int>.generate(KeyPalettes.size * KeyPalette.size, generator),
     );
 
-/// Static methods used for testing apps with dynamic [TonalPalette]s.
+/// Static methods used for testing apps with dynamic [KeyPalettes]s.
 class DynamicColorsTestingUtils {
   /// Initializes the dynamic colors plugin with mock values for testing.
   @visibleForTesting
-  static void setMockDynamicColors(TonalPalette? colors) {
+  static void setMockDynamicColors(KeyPalettes? colors) {
     DynamicColorsPlugin.channel
         .setMockMethodCallHandler((MethodCall methodCall) async {
       if (methodCall.method == DynamicColorsPlugin.methodName) {
