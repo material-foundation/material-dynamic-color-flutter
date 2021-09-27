@@ -40,19 +40,19 @@ class CorePalette {
   /// This is the inverse of [asList].
   CorePalette.fromList(List<int> palettes)
       : primary = TonalPalette.fromList(
-          palettes.getPartition(2, TonalPalette.size),
-        ),
-        secondary = TonalPalette.fromList(
-          palettes.getPartition(3, TonalPalette.size),
-        ),
-        tertiary = TonalPalette.fromList(
-          palettes.getPartition(4, TonalPalette.size),
-        ),
-        neutral = TonalPalette.fromList(
           palettes.getPartition(0, TonalPalette.size),
         ),
-        neutralVariant = TonalPalette.fromList(
+        secondary = TonalPalette.fromList(
           palettes.getPartition(1, TonalPalette.size),
+        ),
+        tertiary = TonalPalette.fromList(
+          palettes.getPartition(2, TonalPalette.size),
+        ),
+        neutral = TonalPalette.fromList(
+          palettes.getPartition(3, TonalPalette.size),
+        ),
+        neutralVariant = TonalPalette.fromList(
+          palettes.getPartition(4, TonalPalette.size),
         );
 
   /// Returns all of the colors in each tonal palette in one long [List] of 
@@ -96,21 +96,21 @@ class CorePalette {
 /// The tones range from 0 to 100, from darkest to lightest. The 0 tone is
 /// always black and the 100 tone is always white.
 class TonalPalette {
-  const TonalPalette(
-    this.tone0,
-    this.tone10,
-    this.tone20,
-    this.tone30,
-    this.tone40,
-    this.tone50,
-    this.tone60,
-    this.tone70,
-    this.tone80,
-    this.tone90,
-    this.tone95,
-    this.tone99,
-    this.tone100,
-  );
+  const TonalPalette({
+    required this.tone0,
+    required this.tone10,
+    required this.tone20,
+    required this.tone30,
+    required this.tone40,
+    required this.tone50,
+    required this.tone60,
+    required this.tone70,
+    required this.tone80,
+    required this.tone90,
+    required this.tone95,
+    required this.tone99,
+    required this.tone100,
+  });
 
   TonalPalette.fromList(List<int> colors)
       : tone0 = Color(colors[0]),
