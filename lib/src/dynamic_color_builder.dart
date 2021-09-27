@@ -12,7 +12,7 @@ import 'core_palette.dart';
 /// See also:
 ///
 ///  * [DynamicColorBuilder example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart)
-///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart) 
+///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart)
 ///    for obtaining dynamic colors and creating a harmonized color scheme
 ///  * [DynamicColorPlugin.getCorePalette] for requesting the colors
 ///    directly, asynchronously.

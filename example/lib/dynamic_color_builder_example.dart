@@ -13,7 +13,7 @@ class Example1 extends StatelessWidget {
         return MaterialApp(
           home: Scaffold(
             body: Container(
-              // On Android S+ devices, use the 40 tone of the dynamic primary 
+              // On Android S+ devices, use the 40 tone of the dynamic primary
               // tonal palette. Otherwise, default to a 600 shade amber.
               color: corePalette?.primary.tone40 ?? Colors.amber.shade600,
               child: const Center(

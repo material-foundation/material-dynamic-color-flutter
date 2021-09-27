@@ -12,7 +12,7 @@ class CompleteExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return DynamicColorBuilder(
       builder: (CorePalette? corePalette) {
-        // One can create ColorSchemes from scratch, but we'll start from the 
+        // One can create ColorSchemes from scratch, but we'll start from the
         // default schemes.
         ColorScheme colorScheme = const ColorScheme.light();
         ColorScheme darkColorScheme = const ColorScheme.dark();

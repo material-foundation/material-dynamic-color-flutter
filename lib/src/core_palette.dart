@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 
-/// Consists of 5 [TonalPalette]s, from which are derived Material You 
+/// Consists of 5 [TonalPalette]s, from which are derived Material You
 /// color schemes.
 ///
 /// Note: This does not include the error [TonalPalette].
@@ -34,7 +34,7 @@ class CorePalette {
   /// The number of [TonalPalette]s.
   static const size = 5;
 
-  /// Constructs a [CorePalette] from a [List] of color [int]s representing 
+  /// Constructs a [CorePalette] from a [List] of color [int]s representing
   /// concatenated tonal palettes.
   ///
   /// This is the inverse of [asList].
@@ -55,7 +55,7 @@ class CorePalette {
           palettes.getPartition(4, TonalPalette.size),
         );
 
-  /// Returns all of the colors in each tonal palette in one long [List] of 
+  /// Returns all of the colors in each tonal palette in one long [List] of
   /// color [int]s.
   ///
   /// This is the inverse of [fromList].
@@ -96,21 +96,21 @@ class CorePalette {
 /// The tones range from 0 to 100, from darkest to lightest. The 0 tone is
 /// always black and the 100 tone is always white.
 class TonalPalette {
-  const TonalPalette({
-    required this.tone0,
-    required this.tone10,
-    required this.tone20,
-    required this.tone30,
-    required this.tone40,
-    required this.tone50,
-    required this.tone60,
-    required this.tone70,
-    required this.tone80,
-    required this.tone90,
-    required this.tone95,
-    required this.tone99,
-    required this.tone100,
-  });
+  const TonalPalette(
+    this.tone0,
+    this.tone10,
+    this.tone20,
+    this.tone30,
+    this.tone40,
+    this.tone50,
+    this.tone60,
+    this.tone70,
+    this.tone80,
+    this.tone90,
+    this.tone95,
+    this.tone99,
+    this.tone100,
+  );
 
   TonalPalette.fromList(List<int> colors)
       : tone0 = Color(colors[0]),

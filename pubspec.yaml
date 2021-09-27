@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  libmonet:
+  dynamic_color_tools:
     git:
-      url: https://github.com/material-foundation/material-monet.git
+      url: https://github.com/material-foundation/dynamic-color-tools.git
       path: dart
 
 dev_dependencies:

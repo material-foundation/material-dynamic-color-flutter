@@ -5,7 +5,6 @@ import 'dynamic_color_builder_example.dart';
 import 'get_core_palette_example.dart';
 import 'core_palette_visualization.dart';
 
-
 void main() {
   runApp(const ExampleApp());
 }
@@ -28,15 +27,17 @@ class ExampleApp extends StatelessWidget {
               const _ExampleAppButton(
                   title: CompleteExample.title, widget: CompleteExample()),
               const Divider(),
-              Text('What\'s a core palette?',  style: textTheme.headline6),
+              Text('What\'s a core palette?', style: textTheme.headline6),
               const _ExampleAppButton(
                 title: CorePaletteVisualization.title,
                 widget: CorePaletteVisualization(),
               ),
               const Divider(),
-              Text('Advanced examples',  style: textTheme.headline6),
-              const _ExampleAppButton(title: Example1.title, widget: Example1()),
-              const _ExampleAppButton(title: Example2.title, widget: Example2()),
+              Text('Advanced examples', style: textTheme.headline6),
+              const _ExampleAppButton(
+                  title: Example1.title, widget: Example1()),
+              const _ExampleAppButton(
+                  title: Example2.title, widget: Example2()),
             ],
           ),
         ),
