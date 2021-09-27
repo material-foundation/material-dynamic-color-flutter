@@ -32,8 +32,8 @@ jobs:
 
       # TODO: Remove when public
       - uses: actions/checkout@v2
-        repository: material-foundation/dynamic-color-tools
         with:
+          repository: material-foundation/dynamic-color-tools
           token: ${{ secrets.TEMP_PAT }}
 
       - name: Install dependencies
