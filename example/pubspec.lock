@@ -57,6 +57,15 @@ packages:
       relative: true
     source: path
     version: "0.1.0"
+  dynamic_color_tools:
+    dependency: transitive
+    description:
+      path: dart
+      ref: HEAD
+      resolved-ref: "2d0332926533f31500e9799d1870e5bc9d9db873"
+      url: "https://github.com/material-foundation/dynamic-color-tools.git"
+    source: git
+    version: "0.1.0"
   fake_async:
     dependency: transitive
     description:
@@ -171,5 +180,5 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.13.4 <3.0.0"
   flutter: ">=1.20.0"

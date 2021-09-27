@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 
-/// Consists of 5 [TonalPalette]s, from which are derived Material You
-/// color schemes.
+/// Consists of 5 [TonalPalette]s, from which Material You color schemes are
+/// derived.
 ///
 /// Note: This does not include the error [TonalPalette].
 /// TODO(guidezpl): expand explanation, add screenshot, link to spec

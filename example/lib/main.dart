@@ -25,7 +25,9 @@ class ExampleApp extends StatelessWidget {
             children: [
               Text('Complete example', style: textTheme.headline6),
               const _ExampleAppButton(
-                  title: CompleteExample.title, widget: CompleteExample()),
+                title: CompleteExample.title,
+                widget: CompleteExample(),
+              ),
               const Divider(),
               Text('What\'s a core palette?', style: textTheme.headline6),
               const _ExampleAppButton(
@@ -35,9 +37,13 @@ class ExampleApp extends StatelessWidget {
               const Divider(),
               Text('Advanced examples', style: textTheme.headline6),
               const _ExampleAppButton(
-                  title: Example1.title, widget: Example1()),
+                title: Example1.title,
+                widget: Example1(),
+              ),
               const _ExampleAppButton(
-                  title: Example2.title, widget: Example2()),
+                title: Example2.title,
+                widget: Example2(),
+              ),
             ],
           ),
         ),
