@@ -11,10 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dynamic_color_tools:
-    git:
-      url: https://github.com/material-foundation/dynamic-color-tools.git
-      path: dart
+  # dynamic_color_tools:
+  #   git:
+  #     url: https://github.com/material-foundation/dynamic-color-tools.git
+  #     path: dart
 
 dev_dependencies:
   flutter_test:
