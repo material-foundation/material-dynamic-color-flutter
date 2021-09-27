@@ -23,14 +23,16 @@ import package:dynamic_color/dynamic_color.dart;
 ## Usage
 
 Run all examples with
+
 ```
 cd example
 flutter run
 ```
 
-See this [complete example] for obtaining dynamic colors and creating 
-a harmonized color scheme. Essentially, we wrap our `MaterialApp` with a 
-[`DynamicColorBuilder`](#1-dynamiccolorsbuilder), and create:
+See this [complete example] for obtaining dynamic colors and creating
+a harmonized color scheme. Essentially, we wrap our `MaterialApp` with a
+`DynamicColorBuilder`, and create:
+
 - a dynamic color scheme that we harmonize with `colorScheme.harmonized()`
 - a fallback color scheme
 
@@ -38,20 +40,21 @@ a harmonized color scheme. Essentially, we wrap our `MaterialApp` with a
 <Summary>Advanced</Summary>
 
 `DynamicColorBuilder` is a stateful widget that provides the device's
-dynamic colors in a [`CorePalette`][CorePalette]. [Example][DynamicColorBuilder example]
+dynamic colors in a [`CorePalette`][corepalette]. [Example][dynamiccolorbuilder example]
 
-Android S+ | Other device
-   --- | ---
-<img width="100%" alt="Using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468852-9e79837d-4109-40b8-82d7-3ef5fe8c225e.png" /> | <img width="100%" alt="Not using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468869-180c0cad-80d5-4e5a-8f2a-6518c525b0a7.png" />
+| Android S+                                                                                                                                                | Other device                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="100%" alt="Using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468852-9e79837d-4109-40b8-82d7-3ef5fe8c225e.png" /> | <img width="100%" alt="Not using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468869-180c0cad-80d5-4e5a-8f2a-6518c525b0a7.png" /> |
 
 Under the hood, `DynamicColorBuilder` uses `DynamicColorPlugin.getCorePalette()`
-to obtain the [`CorePalette`][CorePalette] asynchronously. Unlike with 
+to obtain the [`CorePalette`][corepalette] asynchronously. Unlike with
 `DynamicColorBuilder`, the developer is responsible for obtaining and
-storing the [`CorePalette`][CorePalette].
-[Example][DynamicColorPlugin.getCorePalette example]
+storing the [`CorePalette`][corepalette].
+[Example][dynamiccolorplugin.getcorepalette example]
+
 </details>
 
-[CorePalette]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
+[corepalette]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
 [complete example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart
-[DynamicColorBuilder example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart
-[DynamicColorPlugin.getCorePalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_core_palette_example.dart
+[dynamiccolorbuilder example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart
+[dynamiccolorplugin.getcorepalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_core_palette_example.dart
