@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'complete_example.dart';
 import 'dynamic_color_builder_example.dart';
-import 'get_dynamic_colors_example.dart';
+import 'get_core_palette_example.dart';
 
 void main() {
   runApp(const ExampleApp());

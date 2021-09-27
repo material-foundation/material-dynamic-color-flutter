@@ -54,4 +54,4 @@ storing the [`CorePalette`][CorePalette].
 [CorePalette]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
 [complete example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart
 [DynamicColorBuilder example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart
-[DynamicColorPlugin.getCorePalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_color_example.dart
+[DynamicColorPlugin.getCorePalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_core_palette_example.dart

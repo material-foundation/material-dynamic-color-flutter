@@ -21,7 +21,7 @@ class DynamicColorPlugin {
   ///
   /// See also:
   ///
-  ///  * [getCorePalette() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_color_example.dart)
+  ///  * [getCorePalette() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_core_palette_example.dart)
   ///  * [DynamicColorBuilder] a convenience stateful builder widget that
   ///  provides the dynamic colors
   static Future<CorePalette?> getCorePalette() async {
