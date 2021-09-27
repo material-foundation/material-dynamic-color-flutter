@@ -1,4 +1,4 @@
-package io.material.plugins.dynamic_colors
+package io.material.plugins.dynamic_color
 
 import androidx.annotation.NonNull
 
@@ -24,7 +24,7 @@ class DynamicColorsPlugin : FlutterPlugin, MethodCallHandler {
   override fun onAttachedToEngine(
     @NonNull flutterPluginBinding: FlutterPluginBinding
   ) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "io.material.plugins/dynamic_colors")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "io.material.plugins/dynamic_color")
     channel.setMethodCallHandler(this)
     this.binding = flutterPluginBinding
   }

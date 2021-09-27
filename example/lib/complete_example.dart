@@ -1,6 +1,4 @@
-import 'package:dynamic_colors/dynamic_colors_builder.dart';
-import 'package:dynamic_colors/harmonization.dart';
-import 'package:dynamic_colors/key_palettes.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 
 bool _isDemoUsingDynamicColors = false;
@@ -8,11 +6,11 @@ bool _isDemoUsingDynamicColors = false;
 class CompleteExample extends StatelessWidget {
   const CompleteExample({Key? key}) : super(key: key);
 
-  static const title = 'DynamicColorsBuilder + ColorScheme';
+  static const title = 'DynamicColorBuilder + ColorScheme';
 
   @override
   Widget build(BuildContext context) {
-    return DynamicColorsBuilder(
+    return DynamicColorBuilder(
       builder: (CorePalette? corePalette) {
         // One can create ColorSchemes from scratch, but we'll start from the 
         // default schemes.

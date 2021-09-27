@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-import 'dynamic_colors_plugin.dart';
-import 'key_palettes.dart';
+import 'dynamic_color_plugin.dart';
+import 'core_palette.dart';
 
 /// A stateful builder widget that provides a [CorePalette].
 ///
@@ -11,13 +11,13 @@ import 'key_palettes.dart';
 ///
 /// See also:
 ///
-///  * [DynamicColorsBuilder example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_colors_builder_example.dart)
+///  * [DynamicColorBuilder example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart)
 ///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart) 
 ///    for obtaining dynamic colors and creating a harmonized color scheme
 ///  * [DynamicColorsPlugin.getCorePalette] for requesting the colors
 ///    directly, asynchronously.
-class DynamicColorsBuilder extends StatefulWidget {
-  const DynamicColorsBuilder({
+class DynamicColorBuilder extends StatefulWidget {
+  const DynamicColorBuilder({
     Key? key,
     required this.builder,
   }) : super(key: key);
@@ -29,10 +29,10 @@ class DynamicColorsBuilder extends StatefulWidget {
   final Widget Function(CorePalette?) builder;
 
   @override
-  _DynamicColorsBuilderState createState() => _DynamicColorsBuilderState();
+  _DynamicColorBuilderState createState() => _DynamicColorBuilderState();
 }
 
-class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
+class _DynamicColorBuilderState extends State<DynamicColorBuilder> {
   CorePalette? _corePalette;
 
   @override

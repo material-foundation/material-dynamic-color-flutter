@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'complete_example.dart';
-import 'dynamic_colors_builder_example.dart';
+import 'dynamic_color_builder_example.dart';
 import 'get_dynamic_colors_example.dart';
 
 void main() {
@@ -13,18 +13,22 @@ class ExampleApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Examples')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              _ExampleAppButton(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Complete example', style: textTheme.headline6),
+              const _ExampleAppButton(
                   title: CompleteExample.title, widget: CompleteExample()),
-              Divider(),
-              _ExampleAppButton(title: Example1.title, widget: Example1()),
-              _ExampleAppButton(title: Example2.title, widget: Example2()),
+              const Divider(),
+              Text('Advanced examples',  style: textTheme.headline6),
+              const _ExampleAppButton(title: Example1.title, widget: Example1()),
+              const _ExampleAppButton(title: Example2.title, widget: Example2()),
             ],
           ),
         ),

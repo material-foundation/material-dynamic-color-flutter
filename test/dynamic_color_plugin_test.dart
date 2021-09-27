@@ -1,5 +1,5 @@
-import 'package:dynamic_colors/dynamic_colors_plugin.dart';
-import 'package:dynamic_colors/key_palettes.dart';
+import 'package:dynamic_color/src/dynamic_color_plugin.dart';
+import 'package:dynamic_color/src/core_palette.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'utils.dart';

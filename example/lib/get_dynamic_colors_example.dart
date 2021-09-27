@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:dynamic_colors/dynamic_colors_plugin.dart';
-import 'package:dynamic_colors/key_palettes.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

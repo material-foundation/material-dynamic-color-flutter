@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-import 'dynamic_colors_builder.dart';
-import 'key_palettes.dart';
+import 'dynamic_color_builder.dart';
+import 'core_palette.dart';
 
 /// Plugin for obtaining dynamic colors defined by the Android OS.
 class DynamicColorsPlugin {
   /// Optional method channel so that it returns null on non-Android platforms.
   static const channel = OptionalMethodChannel(
-    'io.material.plugins/dynamic_colors',
+    'io.material.plugins/dynamic_color',
   );
 
   /// The method name that the Kotlin plugin listens for.
@@ -21,8 +21,8 @@ class DynamicColorsPlugin {
   ///
   /// See also:
   ///
-  ///  * [getCorePalette() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_colors_example.dart)
-  ///  * [DynamicColorsBuilder] a convenience stateful builder widget that
+  ///  * [getCorePalette() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_color_example.dart)
+  ///  * [DynamicColorBuilder] a convenience stateful builder widget that
   ///  provides the dynamic colors
   static Future<CorePalette?> getCorePalette() async {
     final result = await channel.invokeMethod(methodName);

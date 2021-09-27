@@ -50,7 +50,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  dynamic_colors:
+  dynamic_color:
     dependency: "direct main"
     description:
       path: ".."
