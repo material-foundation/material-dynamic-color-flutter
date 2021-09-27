@@ -10,13 +10,13 @@ class Example1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicColorsBuilder(
-      builder: (KeyPalettes? dynamicColors) {
+      builder: (CorePalette? corePalette) {
         return MaterialApp(
           home: Scaffold(
             body: Container(
-              // On Android S+ devices, use the 40 tone of the dynamic primary key palette.
-              // Otherwise, default to a 600 shade amber.
-              color: dynamicColors?.primary.tone40 ?? Colors.amber.shade600,
+              // On Android S+ devices, use the 40 tone of the dynamic primary 
+              // tonal palette. Otherwise, default to a 600 shade amber.
+              color: corePalette?.primary.tone40 ?? Colors.amber.shade600,
               child: const Center(
                 child: Text('The background color is either dynamic or amber'),
               ),

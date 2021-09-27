@@ -13,19 +13,20 @@ class CompleteExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicColorsBuilder(
-      builder: (KeyPalettes? dynamicColors) {
-        // One can create ColorSchemes from scratch, but we'll start from the default schemes.
+      builder: (CorePalette? corePalette) {
+        // One can create ColorSchemes from scratch, but we'll start from the 
+        // default schemes.
         ColorScheme colorScheme = const ColorScheme.light();
         ColorScheme darkColorScheme = const ColorScheme.dark();
 
-        if (dynamicColors != null) {
+        if (corePalette != null) {
           // On Android S+ devices, use the 40 and 80 tones of the dynamic
-          // primary key palette for the light and dark schemes, respectively.
+          // primary tonal palette for the light and dark schemes, respectively.
           colorScheme = colorScheme.copyWith(
-            primary: dynamicColors.primary.tone40,
+            primary: corePalette.primary.tone40,
           );
           darkColorScheme = darkColorScheme.copyWith(
-            primary: dynamicColors.primary.tone80,
+            primary: corePalette.primary.tone80,
           );
 
           // Harmonize the dynamic color schemes' semantic colors.

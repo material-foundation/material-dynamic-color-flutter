@@ -7,18 +7,18 @@ import 'utils.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('getDynamicColors', () async {
-    KeyPalettes sampleColors = generateKeyPalettes((i) => i);
+  test('getCorePalette', () async {
+    CorePalette sampleColors = generateCorePalette((i) => i);
     DynamicColorsTestingUtils.setMockDynamicColors(sampleColors);
 
-    final colors = await DynamicColorsPlugin.getDynamicColors();
+    final colors = await DynamicColorsPlugin.getCorePalette();
     expect(colors, equals(sampleColors));
   });
 
-  test('getDynamicColors returns null', () async {
+  test('getCorePalette returns null', () async {
     DynamicColorsTestingUtils.setMockDynamicColors(null);
 
-    final colors = await DynamicColorsPlugin.getDynamicColors();
+    final colors = await DynamicColorsPlugin.getCorePalette();
     expect(colors, equals(null));
   });
 }

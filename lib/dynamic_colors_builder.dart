@@ -4,28 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'dynamic_colors_plugin.dart';
 import 'key_palettes.dart';
 
-/// A stateful builder widget that provides a [KeyPalettes].
+/// A stateful builder widget that provides a [CorePalette].
 ///
-/// The [KeyPalettes] object will be null on non-Android platforms and
-/// pre-Android S devices.
-///
-/// Example usage:
-/// ```dart
-/// DynamicColorsBuilder(
-///   builder: (KeyPalettes? dynamicColors) {
-///     return Container(
-///       color: dynamicColors?.primary.tone50 ?? Colors.amber[500],
-///     );
-///   }
-/// )
-/// ```
+/// The [CorePalette] will be null on non-Android platforms and pre-Android S
+/// devices. See the linked examples for usage.
 ///
 /// See also:
 ///
 ///  * [DynamicColorsBuilder example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_colors_builder_example.dart)
-///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart) for obtaining dynamic
-///    colors and creating a harmonized color scheme
-///  * [DynamicColorsPlugin.getDynamicColors] for requesting the colors
+///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart) 
+///    for obtaining dynamic colors and creating a harmonized color scheme
+///  * [DynamicColorsPlugin.getCorePalette] for requesting the colors
 ///    directly, asynchronously.
 class DynamicColorsBuilder extends StatefulWidget {
   const DynamicColorsBuilder({
@@ -33,20 +22,18 @@ class DynamicColorsBuilder extends StatefulWidget {
     required this.builder,
   }) : super(key: key);
 
-  /// Builds the child widget of this widget, using the [KeyPalettes] object
-  /// passed in.
+  /// Builds the child widget of this widget, using the [CorePalette] passed in.
   ///
-  /// The [KeyPalettes] object will be null if the dynamic colors are not
-  /// available, or have not been returned yet. For example, using this builder
-  /// on an iOS device will always result in a `null` [KeyPalettes] object.
-  final Widget Function(KeyPalettes?) builder;
+  /// The [CorePalette] will be null if dynamic colors are not available,
+  /// or have not been returned yet.
+  final Widget Function(CorePalette?) builder;
 
   @override
   _DynamicColorsBuilderState createState() => _DynamicColorsBuilderState();
 }
 
 class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
-  KeyPalettes? _dynamicColors;
+  CorePalette? _corePalette;
 
   @override
   void initState() {
@@ -56,10 +43,10 @@ class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    KeyPalettes? dynamicColors;
+    CorePalette? corePalette;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      dynamicColors = await DynamicColorsPlugin.getDynamicColors();
+      corePalette = await DynamicColorsPlugin.getCorePalette();
     } on PlatformException {
       debugPrint('Failed to obtain dynamic colors.');
     }
@@ -70,12 +57,12 @@ class _DynamicColorsBuilderState extends State<DynamicColorsBuilder> {
     if (!mounted) return;
 
     setState(() {
-      _dynamicColors = dynamicColors;
+      _corePalette = corePalette;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder(_dynamicColors);
+    return widget.builder(_corePalette);
   }
 }

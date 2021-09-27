@@ -9,17 +9,17 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('DynamicColorsBuilder', (WidgetTester tester) async {
-    KeyPalettes sampleColors = generateKeyPalettes((i) => 12345);
-    DynamicColorsTestingUtils.setMockDynamicColors(sampleColors);
+    CorePalette samplePalette = generateCorePalette((i) => 12345);
+    DynamicColorsTestingUtils.setMockDynamicColors(samplePalette);
 
     const containerKey = Key('myContainer');
 
     await tester.pumpWidget(
       DynamicColorsBuilder(
-        builder: (KeyPalettes? dynamicColors) {
+        builder: (CorePalette? corePalette) {
           return Container(
             key: containerKey,
-            color: dynamicColors?.primary.tone99,
+            color: corePalette?.primary.tone99,
           );
         },
       ),

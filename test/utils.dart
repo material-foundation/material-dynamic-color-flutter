@@ -6,17 +6,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';
 
-/// Generates a [KeyPalettes] based on some generator function which takes an index.
-KeyPalettes generateKeyPalettes(int Function(int index) generator) =>
-    KeyPalettes.fromList(
-      List<int>.generate(KeyPalettes.size * KeyPalette.size, generator),
+/// Generates a [CorePalette] based on some generator function which takes an index.
+CorePalette generateCorePalette(int Function(int index) generator) =>
+    CorePalette.fromList(
+      List<int>.generate(CorePalette.size * TonalPalette.size, generator),
     );
 
-/// Static methods used for testing apps with dynamic [KeyPalettes]s.
+/// Static methods used for testing apps with dynamic [CorePalette]s.
 class DynamicColorsTestingUtils {
   /// Initializes the dynamic colors plugin with mock values for testing.
   @visibleForTesting
-  static void setMockDynamicColors(KeyPalettes? colors) {
+  static void setMockDynamicColors(CorePalette? colors) {
     DynamicColorsPlugin.channel
         .setMockMethodCallHandler((MethodCall methodCall) async {
       if (methodCall.method == DynamicColorsPlugin.methodName) {

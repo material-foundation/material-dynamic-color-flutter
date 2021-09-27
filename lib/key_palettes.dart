@@ -2,12 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 
-/// The 5 [KeyPalette]'s from which are derived Material You color schemess.
+/// Consists of 5 [TonalPalette]s from which are derived Material You 
+/// color schemes.
 ///
-///
+/// Note: This does not include the error [TonalPalette].
 /// TODO(guidezpl): expand explanation, add screenshot, link to spec
-class KeyPalettes {
-  const KeyPalettes({
+class CorePalette {
+  const CorePalette({
     required this.primary,
     required this.secondary,
     required this.tertiary,
@@ -15,48 +16,49 @@ class KeyPalettes {
     required this.neutralVariant,
   });
 
-  /// The primary key palette (P).
-  final KeyPalette primary;
+  /// The primary tonal palette (P).
+  final TonalPalette primary;
 
-  /// The secondary key palette (S).
-  final KeyPalette secondary;
+  /// The secondary tonal palette (S).
+  final TonalPalette secondary;
 
-  /// The tertiary key palette (T).
-  final KeyPalette tertiary;
+  /// The tertiary tonal palette (T).
+  final TonalPalette tertiary;
 
-  /// The neutral key palette (N).
-  final KeyPalette neutral;
+  /// The neutral tonal palette (N).
+  final TonalPalette neutral;
 
-  /// The neutral variant key palette (NV).
-  final KeyPalette neutralVariant;
+  /// The neutral variant tonal palette (NV).
+  final TonalPalette neutralVariant;
 
-  /// The number of [KeyPalette]s.
+  /// The number of [TonalPalette]s.
   static const size = 5;
 
-  /// Turns a [List] of color [int]s representing concatenated key palettes into
-  /// a [KeyPalettes] object.
+  /// Constructs a [CorePalette] from a [List] of color [int]s representing 
+  /// concatenated tonal palettes.
   ///
   /// This is the inverse of [asList].
-  KeyPalettes.fromList(List<int> palettes)
-      : primary = KeyPalette.fromList(
-          palettes.getPartition(2, KeyPalette.size),
+  CorePalette.fromList(List<int> palettes)
+      : primary = TonalPalette.fromList(
+          palettes.getPartition(2, TonalPalette.size),
         ),
-        secondary = KeyPalette.fromList(
-          palettes.getPartition(3, KeyPalette.size),
+        secondary = TonalPalette.fromList(
+          palettes.getPartition(3, TonalPalette.size),
         ),
-        tertiary = KeyPalette.fromList(
-          palettes.getPartition(4, KeyPalette.size),
+        tertiary = TonalPalette.fromList(
+          palettes.getPartition(4, TonalPalette.size),
         ),
-        neutral = KeyPalette.fromList(
-          palettes.getPartition(0, KeyPalette.size),
+        neutral = TonalPalette.fromList(
+          palettes.getPartition(0, TonalPalette.size),
         ),
-        neutralVariant = KeyPalette.fromList(
-          palettes.getPartition(1, KeyPalette.size),
+        neutralVariant = TonalPalette.fromList(
+          palettes.getPartition(1, TonalPalette.size),
         );
 
-  /// Returns all of the colors in each key palette in one long [List] of color [int]s.
+  /// Returns all of the colors in each tonal palette in one long [List] of 
+  /// color [int]s.
   ///
-  /// This is the inverse of [KeyPalettes.fromList].
+  /// This is the inverse of [fromList].
   List<int> asList() => [
         ...primary.allTones,
         ...secondary.allTones,
@@ -76,7 +78,7 @@ class KeyPalettes {
 
   @override
   bool operator ==(Object other) {
-    return other is KeyPalettes &&
+    return other is CorePalette &&
         primary == other.primary &&
         secondary == other.secondary &&
         tertiary == other.tertiary &&
@@ -89,12 +91,12 @@ class KeyPalettes {
       hashValues(primary, secondary, tertiary, neutral, neutralVariant);
 }
 
-/// A key palette contains 13 [Color] tones based on a single key color.
+/// A tonal palette contains 13 [Color] tones based on a single key color.
 ///
 /// The tones range from 0 to 100, from darkest to lightest. The 0 tone is
 /// always black and the 100 tone is always white.
-class KeyPalette {
-  const KeyPalette(
+class TonalPalette {
+  const TonalPalette(
     this.tone0,
     this.tone10,
     this.tone20,
@@ -110,7 +112,7 @@ class KeyPalette {
     this.tone100,
   );
 
-  KeyPalette.fromList(List<int> colors)
+  TonalPalette.fromList(List<int> colors)
       : tone0 = Color(colors[0]),
         tone10 = Color(colors[1]),
         tone20 = Color(colors[2]),
@@ -139,10 +141,10 @@ class KeyPalette {
   final Color tone99;
   final Color tone100; // Always 100% white
 
-  // How many tones there are in a key palette.
+  // How many tones there are in a tonal palette.
   static const size = 13;
 
-  /// Returns all the tones in this key palette as a list from tone 0 to 100.
+  /// Returns all the tones in this tonal palette as a list from tone 0 to 100.
   List<Color> get allTones => [
         tone0,
         tone10,
@@ -194,7 +196,7 @@ class KeyPalette {
 
   @override
   bool operator ==(Object other) {
-    return other is KeyPalette && listEquals(allTones, other.allTones);
+    return other is TonalPalette && listEquals(allTones, other.allTones);
   }
 
   @override

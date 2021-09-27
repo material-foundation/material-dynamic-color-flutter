@@ -13,19 +13,19 @@ class DynamicColorsPlugin {
   );
 
   /// The method name that the Kotlin plugin listens for.
-  static const methodName = 'getDynamicColors';
+  static const methodName = 'getCorePalette';
 
-  /// Returns the Android OS' dynamic colors asynchronously in a [KeyPalettes].
+  /// Returns the Android OS' dynamic colors asynchronously in a [CorePalette].
   ///
   /// Completes with null on pre-Android S and non-Android platforms.
   ///
   /// See also:
   ///
-  ///  * [getDynamicColors() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_colors_example.dart)
+  ///  * [getCorePalette() example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_colors_example.dart)
   ///  * [DynamicColorsBuilder] a convenience stateful builder widget that
   ///  provides the dynamic colors
-  static Future<KeyPalettes?> getDynamicColors() async {
+  static Future<CorePalette?> getCorePalette() async {
     final result = await channel.invokeMethod(methodName);
-    return result == null ? null : KeyPalettes.fromList(result.toList());
+    return result == null ? null : CorePalette.fromList(result.toList());
   }
 }
