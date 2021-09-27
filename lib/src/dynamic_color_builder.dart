@@ -14,7 +14,7 @@ import 'core_palette.dart';
 ///  * [DynamicColorBuilder example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart)
 ///  * [Complete example](https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart) 
 ///    for obtaining dynamic colors and creating a harmonized color scheme
-///  * [DynamicColorsPlugin.getCorePalette] for requesting the colors
+///  * [DynamicColorPlugin.getCorePalette] for requesting the colors
 ///    directly, asynchronously.
 class DynamicColorBuilder extends StatefulWidget {
   const DynamicColorBuilder({
@@ -46,7 +46,7 @@ class _DynamicColorBuilderState extends State<DynamicColorBuilder> {
     CorePalette? corePalette;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      corePalette = await DynamicColorsPlugin.getCorePalette();
+      corePalette = await DynamicColorPlugin.getCorePalette();
     } on PlatformException {
       debugPrint('Failed to obtain dynamic colors.');
     }

@@ -44,14 +44,14 @@ Android S+ | Other device
    --- | ---
 <img width="100%" alt="Using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468852-9e79837d-4109-40b8-82d7-3ef5fe8c225e.png" /> | <img width="100%" alt="Not using dynamic color" src="https://user-images.githubusercontent.com/6655696/131468869-180c0cad-80d5-4e5a-8f2a-6518c525b0a7.png" />
 
-Under the hood, `DynamicColorBuilder` uses `DynamicColorsPlugin.getCorePalette()`
+Under the hood, `DynamicColorBuilder` uses `DynamicColorPlugin.getCorePalette()`
 to obtain the [`CorePalette`][CorePalette] asynchronously. Unlike with 
 `DynamicColorBuilder`, the developer is responsible for obtaining and
 storing the [`CorePalette`][CorePalette].
-[Example][DynamicColorsPlugin.getCorePalette example]
+[Example][DynamicColorPlugin.getCorePalette example]
 </details>
 
 [CorePalette]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/lib/tonal_palette.dart
 [complete example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart
 [DynamicColorBuilder example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/dynamic_color_builder_example.dart
-[DynamicColorsPlugin.getCorePalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_color_example.dart
+[DynamicColorPlugin.getCorePalette example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/get_dynamic_color_example.dart

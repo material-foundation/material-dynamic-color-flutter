@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 class Example2 extends StatefulWidget {
   const Example2({Key? key}) : super(key: key);
 
-  static const title = 'DynamicColorsPlugin.getCorePalette()';
+  static const title = 'DynamicColorPlugin.getCorePalette()';
 
   @override
   State<Example2> createState() => _Example2State();
@@ -27,7 +27,7 @@ class _Example2State extends State<Example2> {
     CorePalette? corePalette;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      corePalette = await DynamicColorsPlugin.getCorePalette();
+      corePalette = await DynamicColorPlugin.getCorePalette();
     } on PlatformException {
       debugPrint('Failed to get dynamic colors.');
     }

@@ -14,17 +14,17 @@ CorePalette generateCorePalette(int Function(int index) generator) =>
 
 /// Static methods used for testing apps with dynamic [CorePalette]s.
 class DynamicColorsTestingUtils {
-  /// Initializes the dynamic colors plugin with mock values for testing.
+  /// Initializes the dynamic color plugin with mock values for testing.
   @visibleForTesting
   static void setMockDynamicColors(CorePalette? colors) {
-    DynamicColorsPlugin.channel
+    DynamicColorPlugin.channel
         .setMockMethodCallHandler((MethodCall methodCall) async {
-      if (methodCall.method == DynamicColorsPlugin.methodName) {
+      if (methodCall.method == DynamicColorPlugin.methodName) {
         return colors != null ? Int32List.fromList(colors.asList()) : null;
       }
     });
     addTearDown(() {
-      DynamicColorsPlugin.channel.setMockMethodCallHandler(null);
+      DynamicColorPlugin.channel.setMockMethodCallHandler(null);
     });
   }
 }

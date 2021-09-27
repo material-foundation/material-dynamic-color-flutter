@@ -6,7 +6,7 @@ import 'dynamic_color_builder.dart';
 import 'core_palette.dart';
 
 /// Plugin for obtaining dynamic colors defined by the Android OS.
-class DynamicColorsPlugin {
+class DynamicColorPlugin {
   /// Optional method channel so that it returns null on non-Android platforms.
   static const channel = OptionalMethodChannel(
     'io.material.plugins/dynamic_color',
