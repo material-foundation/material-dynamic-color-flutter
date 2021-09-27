@@ -22,19 +22,19 @@ import package:dynamic_color/dynamic_color.dart;
 
 ## Usage
 
-Run all examples with
-
-```
-cd example
-flutter run
-```
-
 See this [complete example] for obtaining dynamic colors and creating
 a harmonized color scheme. Essentially, we wrap our `MaterialApp` with a
 `DynamicColorBuilder`, and create:
 
 - a dynamic color scheme that we harmonize with `colorScheme.harmonized()`
 - a fallback color scheme
+
+Run all examples with
+
+```
+cd example
+flutter run
+```
 
 <details> 
 <Summary>Advanced</Summary>
