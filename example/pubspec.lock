@@ -60,11 +60,9 @@ packages:
   dynamic_color_tools:
     dependency: transitive
     description:
-      path: dart
-      ref: HEAD
-      resolved-ref: "2d0332926533f31500e9799d1870e5bc9d9db873"
-      url: "https://github.com/material-foundation/dynamic-color-tools.git"
-    source: git
+      path: "../../dynamic-color-tools/dart"
+      relative: true
+    source: path
     version: "0.1.0"
   fake_async:
     dependency: transitive
