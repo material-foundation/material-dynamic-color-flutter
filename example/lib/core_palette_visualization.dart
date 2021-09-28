@@ -105,6 +105,7 @@ class _CorePaletteVisualizationState extends State<CorePaletteVisualization> {
       children: [
         SwitchListTile(
           title: const Text('Show Android OS dynamic CorePalette'),
+          subtitle: const Text('Available on Android S+'),
           onChanged: canShowSystemDynamicColor
               ? (bool value) => setState(() => showSystemDynamicColor = value)
               : null,
