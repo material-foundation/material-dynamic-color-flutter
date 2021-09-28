@@ -88,14 +88,14 @@ class _HomeState extends State<Home> {
             color: Theme.of(context).colorScheme.primary,
           ),
           Text(
-            'The square\'s color is ColorScheme.primary$dynamicMsg',
+            'The square\'s color is colorScheme.primary$dynamicMsg',
           ),
           Padding(
             padding: const EdgeInsets.all(32.0),
             child: TextField(
               controller: _textEditingController,
               decoration: InputDecoration(
-                errorText: 'The text color is ColorScheme.error$dynamicMsg',
+                errorText: 'The text color is colorScheme.error$dynamicMsg',
               ),
             ),
           ),
