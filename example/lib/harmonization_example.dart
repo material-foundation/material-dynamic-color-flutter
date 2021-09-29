@@ -8,7 +8,7 @@ class HarmonizationExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color primaryColor = Colors.blue;
+    const Color primaryColor = Color(0xff0b57d0);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
