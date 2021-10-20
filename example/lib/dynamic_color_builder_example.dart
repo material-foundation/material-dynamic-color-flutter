@@ -1,4 +1,5 @@
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:material_color_utilities/material_color_utilities.dart';
 import 'package:flutter/material.dart';
 
 class AdvancedExample1 extends StatelessWidget {
@@ -21,11 +22,15 @@ class AdvancedExample1 extends StatelessWidget {
                     height: 100,
                     // On Android S+ devices, use the 40 tone of the dynamic primary
                     // tonal palette. Otherwise, default to a 600 shade orange.
-                    color:
-                        corePalette?.primary.tone40 ?? Colors.orange.shade600,
+                    color: Color(corePalette?.primary.get(40) ??
+                        Colors.orange.shade600.value),
+                    // TODO: is this preferable in terms of readability?
+                    // color: corePalette != null
+                    //    ? Color(corePalette.primary.get(40))
+                    //    : Colors.orange.shade600,
                   ),
                   Text(
-                      'The square\'s color is ${(corePalette?.primary.tone40 != null) ? 'dynamic' : 'orange'}'),
+                      'The square\'s color is ${corePalette != null ? 'dynamic' : 'orange'}'),
                 ],
               ),
             ),
