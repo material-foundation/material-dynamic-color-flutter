@@ -56,11 +56,10 @@ class _AdvancedExample2State extends State<AdvancedExample2> {
               Container(
                 width: 100,
                 height: 100,
-                // On Android S+ devices, use the 40 tone of the dynamic primary
-                // tonal palette. Otherwise, default to a 600 shade orange.
-                color: _corePalette != null
-                    ? Color(_corePalette!.primary.get(40))
-                    : Colors.orange.shade600,
+                // On Android S+ devices, use the 40 tone of the dynamic
+                // primary tonal palette. Otherwise, default to a 40 tone
+                // orange (Colors.orange.shade600).
+                color: Color(_corePalette?.primary.get(40) ?? 0xFFFB8C00),
               ),
               Text(
                   'The square\'s color is ${_corePalette != null ? 'dynamic' : 'orange'}'),
