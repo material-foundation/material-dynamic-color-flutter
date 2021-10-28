@@ -18,7 +18,7 @@ extension ColorSchemeHarmonization on ColorScheme {
   /// Harmonizes [color] with this [ColorScheme]'s [primary].
   Color _harmonizeWithPrimary(Color color) => _harmonizeColor(color, primary);
 
-  /// Harmonizes semantic [ColorScheme] colors with its [primary] color.
+  /// Harmonizes semantic and custom [ColorScheme] colors with its [primary] color.
   ///
   /// Harmonization makes adding and introducing new colors to your app more
   /// seamless by automatically shifting hue and chroma slightly so that a
