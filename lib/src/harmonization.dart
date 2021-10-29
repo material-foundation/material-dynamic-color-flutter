@@ -24,8 +24,8 @@ extension ColorSchemeHarmonization on ColorScheme {
   /// seamless by automatically shifting hue and chroma slightly so that a
   /// product's colors feel more cohesive with user colors.
   ///
-  /// Semantic colors (i.e. colors with meaning) include [error] and [onError],
-  /// as well as custom colors. See https://m3.material.io/styles/color/the-color-system/custom-colors#harmonization
+  /// Semantic colors (i.e. colors with meaning) include [error] and [onError].
+  /// See https://m3.material.io/styles/color/the-color-system/custom-colors#harmonization
   /// for more information.
   ///
   /// Subclasses of [ColorScheme] that add custom colors should re-implement

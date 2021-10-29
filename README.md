@@ -6,7 +6,7 @@
 A Flutter package to obtain dynamic colors on Android S+ and create harmonized
 color schemes.
 
-Learn more about [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) and [harmonization](https://m3.material.io/styles/color/the-color-system/custom-colors#harmonization) on the Material 3 site.
+Learn more about [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview). and [harmonization](https://m3.material.io/styles/color/the-color-system/custom-colors#harmonization) on the Material 3 site.
 
 ## Features
 
@@ -21,7 +21,7 @@ Under the hood, `DynamicColorBuilder` uses a plugin to talk to the Android OS.
 
 ### Color and color scheme harmonization
 
-How do we ensure any particular color (i.e. semantic or custom color)
+How do we ensure any particular color (i.e. semantic/custom color)
 looks good next to a user's dynamically-generated color?
 
 This package provides two extension methods, `Color.harmonizeWith()` and

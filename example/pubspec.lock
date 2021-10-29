@@ -98,10 +98,10 @@ packages:
   material_color_utilities:
     dependency: transitive
     description:
-      path: "../../material-color-utilities/dart"
-      relative: true
-    source: path
-    version: "0.1.0"
+      name: material_color_utilities
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   meta:
     dependency: transitive
     description:
