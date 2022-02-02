@@ -16,7 +16,7 @@ void main() {
         builder: (ColorScheme? light, ColorScheme? dark) {
           return Container(
             key: containerKey,
-            color: light?.primary ?? const Color(0x0000007b),
+            color: light?.primary ?? const Color(0x00000123),
           );
         },
       ),
@@ -26,7 +26,7 @@ void main() {
 
     expect(
       (tester.firstWidget(find.byKey(containerKey)) as Container).color,
-      Colors.white,
+      const Color(0xff4355b9),
     );
   });
 }
