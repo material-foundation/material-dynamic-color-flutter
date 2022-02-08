@@ -1,4 +1,4 @@
-## 1.0.2
+## 1.1.0
 
 - Qualify builder parameters (light => lightDynamic, dark => darkDynamic) for clarity
 
