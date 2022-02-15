@@ -27,7 +27,7 @@ void main() {
 
     expect(
       (tester.firstWidget(find.byKey(containerKey)) as Container).color,
-      const Color(0xff4355b9),
+      const Color(0xff286b2a),
     );
   });
 }
