@@ -31,8 +31,8 @@ This package provides two extension methods, `Color.harmonizeWith()` and
 color, typically `colorScheme.primary`. This leaves the color recognizable
 while harmonizing it.
 
-`ColorScheme.harmonized()` does the same thing, for all `ColorScheme`'s
-semantic and custom colors. See [harmonization.dart] for more.
+`ColorScheme.harmonized()` does the same thing, for `ColorScheme`'s
+built-in semantic colors. See [harmonization.dart] for more.
 
 ## Getting started
 
@@ -44,8 +44,8 @@ import 'package:dynamic_color/dynamic_color.dart';
 
 ## Usage
 
-See this [complete example] for obtaining dynamic colors and creating
-a harmonized color scheme.
+See this [complete example] for obtaining dynamic colors, creating
+harmonized color schemes, and harmonizing custom colors.
 
 <a href="https://material-foundation.github.io/material-dynamic-color-flutter/example/build/web/">
 <img src="https://user-images.githubusercontent.com/6655696/152188934-35e58f5c-2a3c-41af-8d49-faabb1701dcc.png" width="400" /> </a>
