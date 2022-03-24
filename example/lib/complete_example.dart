@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'common.dart';
 
-bool _isDemoUsingDynamicColors = true;
+bool _isDemoUsingDynamicColors = false;
 
 // Fictitious brand color.
 const _brandBlue = Color(0xFF1E88E5);
@@ -26,7 +26,7 @@ class CompleteExample extends StatelessWidget {
 
         if (lightDynamic != null && darkDynamic != null) {
           // On Android S+ devices, use the provided dynamic color scheme.
-          // (Recommended) Harmonize the dynamic color schemes' built-in semantic colors.
+          // (Recommended) Harmonize the dynamic color scheme' built-in semantic colors.
           lightColorScheme = lightDynamic.harmonized();
           // (Optional) Customize the scheme as desired. For example, one might
           // want to use a brand color to override the dynamic [ColorScheme.secondary].
@@ -38,6 +38,8 @@ class CompleteExample extends StatelessWidget {
           darkColorScheme = darkDynamic.harmonized();
           darkColorScheme = darkColorScheme.copyWith(secondary: _brandBlue);
           darkCustomColors = darkCustomColors.harmonized(darkColorScheme);
+
+          _isDemoUsingDynamicColors = true; // ignore, only for demo purposes
         } else {
           // Otherwise, use fallback schemes.
           lightColorScheme = ColorScheme.fromSeed(
@@ -47,8 +49,6 @@ class CompleteExample extends StatelessWidget {
             seedColor: _brandBlue,
             brightness: Brightness.dark,
           );
-
-          _isDemoUsingDynamicColors = false; // ignore, only for demo purposes
         }
 
         return MaterialApp(

@@ -3,10 +3,9 @@
 [![ci](https://github.com/material-foundation/material-dynamic-color-flutter/actions/workflows/test.yml/badge.svg)](https://github.com/material-foundation/material-dynamic-color-flutter/actions/workflows/test.yml)
 [![pub package](https://img.shields.io/pub/v/dynamic_color.svg)](https://pub.dev/packages/dynamic_color)
 
-A Flutter package to obtain dynamic colors on Android S+ and create harmonized
-color schemes.
+A Flutter package to obtain dynamic colors on Android S+ and harmonize custom colors.
 
-Learn more about [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview). and [harmonization](https://m3.material.io/styles/color/the-color-system/custom-colors#harmonization) on the Material 3 site.
+Learn more about [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview), [custom colors and harmonization](https://m3.material.io/styles/color/the-color-system/custom-colors) on the Material 3 site.
 
 ## Features
 
@@ -55,6 +54,15 @@ All [examples] are [hosted on GitHub] and can be run with:
 ```
 cd example
 flutter run
+```
+
+## Development
+
+The [hosted examples][hosted on github] can be updated with:
+
+```
+cd example
+flutter build web
 ```
 
 [complete example]: https://github.com/material-foundation/material-dynamic-color-flutter/tree/main/example/lib/complete_example.dart
