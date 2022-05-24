@@ -12,8 +12,10 @@ class DynamicColorPlugin {
     'io.material.plugins/dynamic_color',
   );
 
-  /// The method name that the Kotlin plugin listens for.
+  /// A method name that the Kotlin plugin listens for.
   static const methodName = 'getCorePalette';
+
+  /// A method name that the Kotlin plugin listens for.
   static const controlAccentColorMethodName = 'getControlAccentColor';
 
   /// Returns the Android OS' dynamic colors asynchronously in a [CorePalette].
@@ -30,6 +32,7 @@ class DynamicColorPlugin {
     return result == null ? null : CorePalette.fromList(result.toList());
   }
 
+  /// Returns the macOS' control accent color asynchronously in an [int] color.
   static Future<int> getControlAccentColor() async =>
       await channel.invokeMethod(controlAccentColorMethodName);
 }
