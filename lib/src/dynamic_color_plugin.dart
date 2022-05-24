@@ -14,6 +14,7 @@ class DynamicColorPlugin {
 
   /// The method name that the Kotlin plugin listens for.
   static const methodName = 'getCorePalette';
+  static const controlAccentColorMethodName = 'getControlAccentColor';
 
   /// Returns the Android OS' dynamic colors asynchronously in a [CorePalette].
   ///
@@ -28,4 +29,7 @@ class DynamicColorPlugin {
     final result = await channel.invokeMethod(methodName);
     return result == null ? null : CorePalette.fromList(result.toList());
   }
+
+  static Future<int> getControlAccentColor() async =>
+      await channel.invokeMethod(controlAccentColorMethodName);
 }

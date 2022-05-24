@@ -24,3 +24,6 @@ flutter:
       android:
         package: io.material.plugins.dynamic_color
         pluginClass: DynamicColorPlugin
+      macos:
+        package: io.material.plugins.dynamic_color
+        pluginClass: DynamicColorPlugin
