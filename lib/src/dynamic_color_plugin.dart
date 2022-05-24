@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/services.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
@@ -15,7 +16,7 @@ class DynamicColorPlugin {
   /// A method name that the Kotlin plugin listens for.
   static const methodName = 'getCorePalette';
 
-  /// A method name that the Kotlin plugin listens for.
+  /// A method name that the macOS plugin listens for.
   static const controlAccentColorMethodName = 'getControlAccentColor';
 
   /// Returns the Android OS' dynamic colors asynchronously in a [CorePalette].
@@ -32,7 +33,16 @@ class DynamicColorPlugin {
     return result == null ? null : CorePalette.fromList(result.toList());
   }
 
-  /// Returns the macOS' control accent color asynchronously in an [int] color.
-  static Future<int> getControlAccentColor() async =>
-      await channel.invokeMethod(controlAccentColorMethodName);
+  /// Returns the macOS' control accent color asynchronously in a [Color].
+  ///
+  /// Supported since macOS 10.14, Mojave
+  ///
+  /// See also:
+  ///
+  /// * [Apple's introduction to macos accent color](https://developer.apple.com/design/human-interface-guidelines/macos/overview/whats-new-in-macos/#app-accent-colors)
+  /// * [NSColor.controlAccentColor documentation](https://developer.apple.com/documentation/appkit/nscolor/3000782-controlaccentcolor)
+  static Future<Color?> getControlAccentColor() async {
+    final result = await channel.invokeMethod(controlAccentColorMethodName);
+    return result == null ? null : Color(result);
+  }
 }

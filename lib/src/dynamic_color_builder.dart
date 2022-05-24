@@ -66,21 +66,25 @@ class DynamicColorBuilderState extends State<DynamicColorBuilder> {
       debugPrint('Failed to obtain dynamic colors.');
 
       try {
-        final color = Color(await DynamicColorPlugin.getControlAccentColor());
+        final color = await DynamicColorPlugin.getControlAccentColor();
 
         // Likewise above.
         if (!mounted) return;
 
-        setState(() {
-          _light = ColorScheme.fromSeed(
-            seedColor: color,
-            brightness: Brightness.light,
-          );
-          _dark = ColorScheme.fromSeed(
-            seedColor: color,
-            brightness: Brightness.dark,
-          );
-        });
+        if (color == null) {
+          debugPrint('Control accent color result was null.');
+        } else {
+          setState(() {
+            _light = ColorScheme.fromSeed(
+              seedColor: color,
+              brightness: Brightness.light,
+            );
+            _dark = ColorScheme.fromSeed(
+              seedColor: color,
+              brightness: Brightness.dark,
+            );
+          });
+        }
       } on PlatformException {
         debugPrint('Failed to obtain control accent color.');
       }
