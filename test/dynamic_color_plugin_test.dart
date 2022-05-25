@@ -29,7 +29,7 @@ void main() {
     const color = Color.fromARGB(12, 24, 123, 53);
 
     DynamicColorTestingUtils.setMockDynamicColors(
-        controlAccentColor: color,
+      controlAccentColor: color,
     );
     final result = await DynamicColorPlugin.getControlAccentColor();
     expect(result, color);

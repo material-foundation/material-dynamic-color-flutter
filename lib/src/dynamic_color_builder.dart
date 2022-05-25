@@ -59,7 +59,7 @@ class DynamicColorBuilderState extends State<DynamicColorBuilder> {
       if (!mounted) return;
 
       if (color == null) {
-          debugPrint('Got null core palette.');
+        debugPrint('Got null core palette.');
       } else {
         setState(() {
           _light = corePalette.toColorScheme();
@@ -71,7 +71,8 @@ class DynamicColorBuilderState extends State<DynamicColorBuilder> {
     }
 
     try {
-      final Color? controlAccentColor = await DynamicColorPlugin.getControlAccentColor();
+      final Color? controlAccentColor =
+          await DynamicColorPlugin.getControlAccentColor();
 
       // Likewise above.
       if (!mounted) return;
