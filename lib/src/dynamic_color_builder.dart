@@ -58,38 +58,40 @@ class DynamicColorBuilderState extends State<DynamicColorBuilder> {
       // setState to update our non-existent appearance.
       if (!mounted) return;
 
-      if (corePalette != null) {
+      if (color == null) {
+          debugPrint('Got null core palette.');
+      } else {
         setState(() {
           _light = corePalette.toColorScheme();
           _dark = corePalette.toColorScheme(brightness: Brightness.dark);
         });
       }
     } on PlatformException {
-      debugPrint('Failed to obtain dynamic colors.');
+      debugPrint('Failed to obtain core palette.');
+    }
 
-      try {
-        final color = await DynamicColorPlugin.getControlAccentColor();
+    try {
+      final Color? controlAccentColor = await DynamicColorPlugin.getControlAccentColor();
 
-        // Likewise above.
-        if (!mounted) return;
+      // Likewise above.
+      if (!mounted) return;
 
-        if (color == null) {
-          debugPrint('Control accent color result was null.');
-        } else {
-          setState(() {
-            _light = ColorScheme.fromSeed(
-              seedColor: color,
-              brightness: Brightness.light,
-            );
-            _dark = ColorScheme.fromSeed(
-              seedColor: color,
-              brightness: Brightness.dark,
-            );
-          });
-        }
-      } on PlatformException {
-        debugPrint('Failed to obtain control accent color.');
+      if (controlAccentColor == null) {
+        debugPrint('Got null control accent color.');
+      } else {
+        setState(() {
+          _light = ColorScheme.fromSeed(
+            seedColor: controlAccentColor,
+            brightness: Brightness.light,
+          );
+          _dark = ColorScheme.fromSeed(
+            seedColor: controlAccentColor,
+            brightness: Brightness.dark,
+          );
+        });
       }
+    } on PlatformException {
+      debugPrint('Failed to obtain control accent color.');
     }
   }
 
