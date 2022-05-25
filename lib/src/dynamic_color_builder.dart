@@ -58,10 +58,12 @@ class DynamicColorBuilderState extends State<DynamicColorBuilder> {
       // setState to update our non-existent appearance.
       if (!mounted) return;
 
-      setState(() {
-        _light = corePalette?.toColorScheme();
-        _dark = corePalette?.toColorScheme(brightness: Brightness.dark);
-      });
+      if (corePalette != null) {
+        setState(() {
+          _light = corePalette.toColorScheme();
+          _dark = corePalette.toColorScheme(brightness: Brightness.dark);
+        });
+      }
     } on PlatformException {
       debugPrint('Failed to obtain dynamic colors.');
 

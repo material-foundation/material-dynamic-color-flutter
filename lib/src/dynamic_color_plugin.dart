@@ -33,9 +33,9 @@ class DynamicColorPlugin {
     return result == null ? null : CorePalette.fromList(result.toList());
   }
 
-  /// Returns the macOS' control accent color asynchronously in a [Color].
+  /// Returns the macOS' control accent color asynchronously as a [Color].
   ///
-  /// Supported since macOS 10.14, Mojave
+  /// Supported since macOS 10.14 (Mojave).
   ///
   /// See also:
   ///
