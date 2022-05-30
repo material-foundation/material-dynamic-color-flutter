@@ -1,5 +1,5 @@
 ## 1.4.0
-- Add support for Windows' accent color ([#43](https://github.com/material-foundation/material-dynamic-color-flutter/pull/43F))
+- Add support for Windows' accent color ([#43](https://github.com/material-foundation/material-dynamic-color-flutter/pull/43))
   - Rename `DynamicColorPlugin.getControlAccentColor` to `DynamicColorPlugin.getAccentColor`
   - Rename `DynamicColorTestingUtils.setMockDynamicColors`'s argument `controlAccentColor` to `accentColor`
 
