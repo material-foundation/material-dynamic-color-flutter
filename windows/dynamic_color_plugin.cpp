@@ -40,7 +40,7 @@ DynamicColorPlugin::~DynamicColorPlugin() {}
 void DynamicColorPlugin::HandleMethodCall(
     const flutter::MethodCall<flutter::EncodableValue> &method_call,
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
-  if (method_call.method_name().compare("getControlAccentColor") == 0) {
+  if (!method_call.method_name().compare("getAccentColor")) {
     int64_t argbColor = 0;
     DWORD abgr = 0;
     DWORD resultSize = sizeof (abgr);
