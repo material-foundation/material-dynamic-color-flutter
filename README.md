@@ -49,7 +49,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 See this [complete example] for obtaining dynamic colors, creating
 harmonized color schemes, and harmonizing custom colors.
 
-See [accent color example] for obtaining the macOS/Windows accent color.
+See this [accent color example] for obtaining the macOS/Windows accent color.
 
 <a href="https://material-foundation.github.io/material-dynamic-color-flutter/example/build/web/">
 <img src="https://user-images.githubusercontent.com/6655696/152188934-35e58f5c-2a3c-41af-8d49-faabb1701dcc.png" width="400" /> </a>
