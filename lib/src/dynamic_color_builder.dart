@@ -10,8 +10,8 @@ import 'dynamic_color_plugin.dart';
 /// Android: the [ColorScheme]s are constructed from the [CorePalette] provided
 /// by the Android OS.
 ///
-/// macOS: the [ColorScheme]s are constructed from the accent [Color] provided
-/// by macOS.
+/// macOS and Windows: the [ColorScheme]s are constructed from the accent [Color]
+/// provided by the system.
 ///
 /// See also:
 ///

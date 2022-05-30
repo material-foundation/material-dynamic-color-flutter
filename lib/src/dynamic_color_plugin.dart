@@ -35,12 +35,14 @@ class DynamicColorPlugin {
 
   /// Returns the macOS' control accent color asynchronously as a [Color].
   ///
-  /// Supported since macOS 10.14 (Mojave).
+  /// Supported since macOS 10.14 (Mojave) and Windows 10/11.
   ///
   /// See also:
   ///
   /// * [Apple's introduction to macos accent color](https://developer.apple.com/design/human-interface-guidelines/macos/overview/whats-new-in-macos/#app-accent-colors)
-  /// * [NSColor.controlAccentColor documentation](https://developer.apple.com/documentation/appkit/nscolor/3000782-controlaccentcolor)
+  /// * [macOS's NSColor.controlAccentColor documentation](https://developer.apple.com/documentation/appkit/nscolor/3000782-controlaccentcolor)
+  /// * [Windows' accent color](https://docs.microsoft.com/en-us/windows/apps/design/style/color#accent-color)
+  /// * [Change colors in Windows](https://support.microsoft.com/en-us/windows/change-colors-in-windows-d26ef4d6-819a-581c-1581-493cfcc005fe)
   static Future<Color?> getControlAccentColor() async {
     final result = await channel.invokeMethod(controlAccentColorMethodName);
     return result == null ? null : Color(result);

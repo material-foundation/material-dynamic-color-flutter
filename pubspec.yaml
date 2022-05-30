@@ -27,3 +27,6 @@ flutter:
       macos:
         package: io.material.plugins.dynamic_color
         pluginClass: DynamicColorPlugin
+      windows:
+        package: io.material.plugins.dynamic_color
+        pluginClass: DynamicColorPluginCApi

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ControlAccentColorExample extends StatelessWidget {
   const ControlAccentColorExample({Key? key}) : super(key: key);
 
-  static const title = 'Control accent color (macOS only)';
+  static const title = 'Control accent color (macOS and Windows)';
 
   @override
   Widget build(BuildContext context) {
