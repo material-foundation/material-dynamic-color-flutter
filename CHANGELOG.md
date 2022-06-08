@@ -1,6 +1,6 @@
 ## 1.5.0
 
-- Add support for GTK's accent color on Linux ([#43](https://github.com/material-foundation/material-dynamic-color-flutter/pull/47))
+- Add support for GTK's accent color on Linux ([#47](https://github.com/material-foundation/material-dynamic-color-flutter/pull/47))
 
 ## 1.4.1
 
