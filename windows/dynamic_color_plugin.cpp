@@ -3,6 +3,7 @@
 // This must be included before many other Windows headers.
 #include <windows.h>
 #include <dwmapi.h>
+#include "dwm.c"
 
 // For getPlatformVersion; remove unless needed for your plugin implementation.
 #include <VersionHelpers.h>
@@ -60,12 +61,41 @@ static BOOL GetAccentColorViaRegistry(int64_t& argbColor) {
   return FALSE;
 }
 
-static BOOL GetWindowColorViaDwm(int64_t& argbColor) {
-  DWORD color = 0;
-  BOOL opaque = FALSE;
+static BOOL GetWindowColorViaDwmUndocd(int64_t& argbColor) {
+  HMODULE hDwmDll = LoadLibrary(L"dwmapi.dll");
+  if (!hDwmDll) {
+    return FALSE;
+  }
 
-  if (SUCCEEDED(DwmGetColorizationColor(&color, &opaque))) {
-    argbColor = color;
+  *(FARPROC *)&DwmGetColorizationParameters = GetProcAddress(hDwmDll,(LPCSTR)127);
+
+  COLORIZATIONPARAMS colorParams;
+  if (SUCCEEDED(DwmGetColorizationParameters(&colorParams))) {
+    argbColor = colorParams.clrColor;
+    FreeLibrary(hDwmDll);
+    return TRUE;
+  }
+
+  FreeLibrary(hDwmDll);
+  return FALSE;
+}
+
+static BOOL GetWindowColorViaDwmRegistry(int64_t& argbColor) {
+  DWORD argb = 0;
+  DWORD resultSize = sizeof(argb);
+
+  if (SUCCEEDED(
+    RegGetValue(
+      HKEY_CURRENT_USER,
+      L"Software\\Microsoft\\Windows\\DWM",
+      L"ColorizationColor",
+      RRF_RT_REG_DWORD,
+      nullptr,
+      &argb,
+      &resultSize
+    )
+  )) {
+    argbColor = argb;
     return TRUE;
   }
 
@@ -84,7 +114,16 @@ void DynamicColorPlugin::HandleMethodCall(
       successful = GetAccentColorViaRegistry(argb);
     }
     if (!successful && IsWindowsVistaOrGreater()) {
-      successful = GetWindowColorViaDwm(argb);
+      BOOL dwmEnabled = FALSE;
+      if (SUCCEEDED(DwmIsCompositionEnabled(&dwmEnabled)) && dwmEnabled == TRUE) {
+        successful = GetWindowColorViaDwmUndocd(argb);
+
+        // Our attempt at using the undocumented DWM
+        // function failed, let's retry using the registry.
+        if (!successful) {
+          successful = GetWindowColorViaDwmRegistry(argb);
+        }
+      }
     }
 
     if (successful) {
