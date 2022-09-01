@@ -24,7 +24,7 @@ jobs:
       - name: Clone Flutter repository with beta channel
         uses: subosito/flutter-action@v1.5.3
         with:
-          channel: beta
+          channel: stable
       - run: flutter doctor -v
 
       - uses: actions/checkout@v2
