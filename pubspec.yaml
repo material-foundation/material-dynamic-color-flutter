@@ -5,8 +5,7 @@ repository: https://github.com/material-foundation/material-dynamic-color-flutte
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
-  # TODO: bump to 3.2.0 when available
-  flutter: ">=3.1.0-0.0.pre.1036"
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
