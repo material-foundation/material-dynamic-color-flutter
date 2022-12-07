@@ -1,5 +1,7 @@
-## 1.5.5
+## NEXT
 
+- Update constraint for `material_color_utilities` to `0.2.0`
+- Update Flutter constraint
 - Make return value of toColorScheme extension method non-nullable ([#55](https://github.com/material-foundation/material-dynamic-color-flutter/pull/55))
 
 ## 1.5.4
