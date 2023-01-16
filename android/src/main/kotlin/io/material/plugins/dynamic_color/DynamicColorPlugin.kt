@@ -1,16 +1,19 @@
 package io.material.plugins.dynamic_color
 
+import android.content.Context
+import android.content.res.Resources
+import android.content.res.TypedArray
+import android.os.Build
+import androidx.annotation.ColorInt
 import androidx.annotation.NonNull
-
+import androidx.annotation.RequiresApi
 import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import android.content.res.Resources
-import android.os.Build
-import androidx.annotation.RequiresApi
-import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
+
 
 class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
@@ -38,6 +41,10 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
       } else {
         result.success(null)
       }
+    } else if (call.method.equals("getAccentColor")) {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        result.success(getAccentColor(binding.applicationContext))
+      }
     } else {
       result.notImplemented()
     }
@@ -45,6 +52,17 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
+  }
+
+  @RequiresApi(Build.VERSION_CODES.Q)
+  private fun getAccentColor(@NonNull context: Context): Int {
+    val array : TypedArray = context.obtainStyledAttributes(
+      android.R.style.TextAppearance_DeviceDefault,
+      IntArray(1){android.R.attr.colorAccent},
+    );
+    @ColorInt val color = array.getColor(0, 0);
+    array.recycle();
+    return color;
   }
 
   @RequiresApi(Build.VERSION_CODES.S)
