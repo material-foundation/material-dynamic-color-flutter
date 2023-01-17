@@ -44,6 +44,8 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
     } else if (call.method.equals("getAccentColor")) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         result.success(getAccentColor(binding.applicationContext))
+      } else {
+        result.success(null)
       }
     } else {
       result.notImplemented()
