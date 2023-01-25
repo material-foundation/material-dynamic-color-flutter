@@ -1,11 +1,9 @@
 package io.material.plugins.dynamic_color
 
-import android.content.Context
 import android.content.res.Resources
 import android.content.res.TypedArray
 import android.os.Build
 import androidx.annotation.ColorInt
-import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
@@ -24,15 +22,13 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
 
   private lateinit var binding: FlutterPluginBinding
 
-  override fun onAttachedToEngine(
-    @NonNull flutterPluginBinding: FlutterPluginBinding
-  ) {
+  override fun onAttachedToEngine(flutterPluginBinding: FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "io.material.plugins/dynamic_color")
     channel.setMethodCallHandler(this)
     this.binding = flutterPluginBinding
   }
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+  override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method.equals("getCorePalette")) {
       // Dynamic colors are only available on Android S and up.
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -43,7 +39,8 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
       }
     } else if (call.method.equals("getAccentColor")) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        result.success(getAccentColor(binding.applicationContext))
+        val theme: Resources.Theme = binding.applicationContext.theme
+        result.success(getAccentColor(theme))
       } else {
         result.success(null)
       }
@@ -52,19 +49,19 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
     }
   }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPluginBinding) {
+  override fun onDetachedFromEngine(binding: FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
 
   @RequiresApi(Build.VERSION_CODES.Q)
-  private fun getAccentColor(@NonNull context: Context): Int {
-    val array : TypedArray = context.obtainStyledAttributes(
-      android.R.style.TextAppearance_DeviceDefault,
+  private fun getAccentColor(theme: Resources.Theme): Int {
+    val array : TypedArray = theme.obtainStyledAttributes(
+      android.R.style.Theme_DeviceDefault,
       IntArray(1){android.R.attr.colorAccent},
-    );
-    @ColorInt val color = array.getColor(0, 0);
-    array.recycle();
-    return color;
+    )
+    @ColorInt val color = array.getColor(0, 0)
+    array.recycle()
+    return color
   }
 
   @RequiresApi(Build.VERSION_CODES.S)
