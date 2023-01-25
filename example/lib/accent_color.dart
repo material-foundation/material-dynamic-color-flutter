@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AccentColorExample extends StatelessWidget {
   const AccentColorExample({Key? key}) : super(key: key);
 
-  static const title = 'Accent color (desktop)';
+  static const title = 'Accent color';
 
   @override
   Widget build(BuildContext context) {
