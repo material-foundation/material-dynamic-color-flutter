@@ -1,5 +1,6 @@
 package io.material.plugins.dynamic_color
 
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.content.res.TypedArray
 import android.os.Build
@@ -39,8 +40,9 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
       }
     } else if (call.method.equals("getAccentColor")) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val resources: Resources = binding.applicationContext.resources
         val theme: Resources.Theme = binding.applicationContext.theme
-        result.success(getAccentColor(theme))
+        result.success(getAccentColor(resources, theme))
       } else {
         result.success(null)
       }
@@ -54,11 +56,17 @@ class DynamicColorPlugin : FlutterPlugin, MethodCallHandler {
   }
 
   @RequiresApi(Build.VERSION_CODES.Q)
-  private fun getAccentColor(theme: Resources.Theme): Int {
+  private fun getAccentColor(resources: Resources, theme: Resources.Theme): Int {
+    val resId = when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+      Configuration.UI_MODE_NIGHT_YES -> android.R.style.Theme_DeviceDefault
+      else -> android.R.style.Theme_DeviceDefault_Light
+    }
+
     val array : TypedArray = theme.obtainStyledAttributes(
-      android.R.style.Theme_DeviceDefault,
+      resId,
       IntArray(1){android.R.attr.colorAccent},
     )
+
     @ColorInt val color = array.getColor(0, 0)
     array.recycle()
     return color
